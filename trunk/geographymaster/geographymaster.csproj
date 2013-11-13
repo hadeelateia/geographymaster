@@ -176,7 +176,9 @@
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\superfish.css" />
+    <Content Include="Content\music\TheContinentSong.mp3" />
     <Content Include="Content\photos\category\background_europe.png" />
+    <Content Include="Content\photos\logo.jpg" />
     <Content Include="Content\photos\subcategory\capital_cities.png" />
     <Content Include="Content\photos\index\africa.gif" />
     <Content Include="Content\photos\index\asia.gif" />
