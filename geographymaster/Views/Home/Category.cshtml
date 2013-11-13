@@ -1,0 +1,82 @@
+﻿@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+<style>
+    /*TODO: use CSS sprites*/
+    .europe {
+        width: inherit;
+        height: 626px;
+        z-index: -10000;
+        background: url('/Content/photos/category/background_europe.png') repeat;
+    }
+
+    .asia {
+        width: inherit;
+        height: 626px;
+        background: url('/Content/photos/category/background_asia.png') repeat;
+    }
+
+    .australia_oceania {
+        width: inherit;
+        height: 626px;
+        background: url('/Content/photos/category/background_australia_oceania.png') repeat;
+    }
+
+    .north_america {
+        width: inherit;
+        height: 626px;
+        background: url('/Content/photos/category/background_north_america.png') repeat;
+    }
+
+    .south_america {
+        width: inherit;
+        height: 626px;
+        background: url('/Content/photos/category/background_south_america.png') repeat;
+    }
+
+    .africa {
+        width: inherit;
+        height: 626px;
+        background: url('/Content/photos/category/background_africa.png') repeat;
+    }
+</style>
+<div class="@ViewBag.Continent">
+    <section class="met_content met_full_portfolio columns_3">
+
+        <div class="met_fp_item mix illustrations" style="width: auto; top: 35%; left: 5%; position: absolute; z-index:10000">
+            <div class="met_fp_item_preview">
+                <img src="~/Content/photos/subcategory/capital_cities.png" alt="" />
+                <div class="met_fpip_overlay met_vcenter">
+                    <div class="met_fpipo_box">
+                        @Html.ActionLink("Get me there", "Game")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="met_fp_item mix illustration" style="width: auto; bottom: 15%; left: 23%; position: absolute;">
+            <div class="met_fp_item_preview">
+                <img src="~/Content/photos/subcategory/flags.png" alt="" />
+                <div class="met_fpip_overlay met_vcenter">
+                    <div class="met_fpipo_box">
+                        @Html.ActionLink("Get me there", "Game")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="met_fp_item mix illustration" style="width: auto; top: 35%; left: 56%; position: absolute;">
+            <div class="met_fp_item_preview">
+                <img src="~/Content/photos/subcategory/countries.png" alt="" />
+                <div class="met_fpip_overlay met_vcenter">
+                    <div class="met_fpipo_box">
+                        @Html.ActionLink("Get me there", "Game")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+

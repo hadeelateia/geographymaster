@@ -176,37 +176,24 @@
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\superfish.css" />
-    <Content Include="Content\photos\africa.gif" />
-    <Content Include="Content\photos\asia.gif" />
-    <Content Include="Content\photos\australia_oceania.gif" />
-    <Content Include="Content\photos\europe.gif" />
-    <Content Include="Content\photos\indexBig\1.jpg" />
-    <Content Include="Content\photos\indexBig\10.jpg" />
-    <Content Include="Content\photos\indexBig\11.jpg" />
-    <Content Include="Content\photos\indexBig\12.jpg" />
-    <Content Include="Content\photos\indexBig\2.jpg" />
-    <Content Include="Content\photos\indexBig\3.jpg" />
+    <Content Include="Content\photos\category\background_europe.png" />
+    <Content Include="Content\photos\subcategory\capital_cities.png" />
+    <Content Include="Content\photos\index\africa.gif" />
+    <Content Include="Content\photos\index\asia.gif" />
+    <Content Include="Content\photos\index\australia_oceania.gif" />
+    <Content Include="Content\photos\index\europe.gif" />
     <Content Include="Content\photos\indexBig\4.html" />
-    <Content Include="Content\photos\indexBig\5.jpg" />
-    <Content Include="Content\photos\indexBig\6.jpg" />
-    <Content Include="Content\photos\indexBig\7.jpg" />
-    <Content Include="Content\photos\indexBig\8.jpg" />
-    <Content Include="Content\photos\indexBig\9.jpg" />
-    <Content Include="Content\photos\index\1.jpg" />
-    <Content Include="Content\photos\index\10.jpg" />
-    <Content Include="Content\photos\index\11.jpg" />
-    <Content Include="Content\photos\index\12.jpg" />
-    <Content Include="Content\photos\index\2.jpg" />
-    <Content Include="Content\photos\index\3.jpg" />
-    <Content Include="Content\photos\index\4.jpg" />
-    <Content Include="Content\photos\index\5.jpg" />
-    <Content Include="Content\photos\index\6.jpg" />
-    <Content Include="Content\photos\index\7.jpg" />
-    <Content Include="Content\photos\index\8.jpg" />
-    <Content Include="Content\photos\index\9.jpg" />
+    <Content Include="Content\photos\indexBig\africa.gif" />
+    <Content Include="Content\photos\indexBig\asia.gif" />
+    <Content Include="Content\photos\indexBig\australia_oceania.gif" />
+    <Content Include="Content\photos\indexBig\europe.gif" />
+    <Content Include="Content\photos\indexBig\north_america.gif" />
+    <Content Include="Content\photos\indexBig\south_america.gif" />
     <Content Include="Content\photos\logo.png" />
-    <Content Include="Content\photos\north_america.gif" />
-    <Content Include="Content\photos\south_america.gif" />
+    <Content Include="Content\photos\index\north_america.gif" />
+    <Content Include="Content\photos\index\south_america.gif" />
+    <Content Include="Content\photos\subcategory\countries.png" />
+    <Content Include="Content\photos\subcategory\flags.png" />
     <Content Include="Content\scripts\bootstrap.min.js" />
     <Content Include="Content\scripts\caroufredsel.js" />
     <Content Include="Content\scripts\flickrfeed.min.js" />
@@ -272,6 +259,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_BasicLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Category.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

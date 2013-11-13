@@ -16,5 +16,11 @@ namespace geographymaster.Controllers
             return View();
         }
 
+        public ViewResult Category(string category)
+        {
+            ViewBag.Continent = category;
+            return View();
+        }
+
     }
 }
