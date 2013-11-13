@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="shortcut icon" href="img/fav.png">
+
+    <title>@ViewBag.Title</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Facebook Share Components -->
+
+
+    <!-- CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>
+
+    <link href='~/Content/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+
+    <link href="~/Content/css/metcreative.audio/nouislider.fox.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/metcreative.audio/nouislider.space.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/metcreative.audio/style.css" rel="stylesheet" type="text/css">
+
+    <link href='~/Content/css/superfish.css' rel='stylesheet' type='text/css'>
+    <link href='~/Content/css/magnific-popup.css' rel='stylesheet' type='text/css'>
+    <link href='~/Content/css/jquery.mCustomScrollbar.css' rel='stylesheet' type='text/css'>
+    <link href='~/Content/css/style.css' rel='stylesheet' type='text/css'>
+    <link href='~/Content/css/sresponsive.css' rel='stylesheet' type='text/css'>
+
+    <!--[if lte IE 8]>
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:600" />
+
+	<link rel="stylesheet" href="css/lte-ie8.css" />
+	<![endif]-->
+
+    <script src="~/Content/scripts/modernizr.js"></script>
+
+    <style id="colorChanges" type="text/css">
+			</style>
+</head>
+<body class="clearfix">
+    <aside class="met_left_bar">
+        <a href="index.html" class="met_logo">
+            <img src="~/Content/photos/logo.jpg" alt="" height="200px;" /></a>
+
+        <nav>
+            <ul class="met_clean_list">
+                <li class="met_menu_has_sub">
+                    <a href="index.html">Home</a>
+                    <ul class="met_clean_list">
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="index2.html">Home 2</a></li>
+                        <li><a href="index3.html">Home 3</a></li>
+                        <li><a href="index4.html">Home 4</a></li>
+                    </ul>
+                </li>
+                <li class="met_menu_has_sub">
+                    <a href="portfolio_stripe_vertical.html">Portfolio</a>
+                    <ul class="met_clean_list">
+                        <li><a href="portfolio_stripe_vertical.html">Vertical</a></li>
+                        <li><a href="portfolio_stripe_horizontal.html">Horizontal</a></li>
+                        <li><a href="project_details.html">Project Details</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="met_sidebar_hide_seek">
+            <div class="met_sidebar_hide_seek_contents">
+
+                <div class="met_left_bar_box met_sidebar_full clearfix">
+                    <div class="met_mini_audioplayer clearfix">
+                        <audio id="audio">
+                            <source src="~/Content/music/TheContinentSong.mp3" type="audio/mpeg">
+                            Your browser does not support HTML5 Auido Player, Please Install either of Google Chrome, Firefox, Opera, IE10.
+                        </audio>
+
+                        <a href="#" class="met_ma_play_stop met_color_transition"><i class="fa fa-caret-right"></i></a>
+
+                        <div class="met_ma_time"><span class="met_ma_mins">00</span>:<span class="met_ma_secs">00</span></div>
+                        <a href="#" class="met_ma_volume met_color_transition"><i class="fa fa-volume-up"></i></a>
+
+                        <div class="met_ma_progress">
+                            <div class="met_ma_current_progress met_bgcolor" style="width: 0;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="met_sidebar_hider_seeker"><a href="#"><i class="fa fa-chevron-down"></i></a></div>
+        </div>
+    </aside>
+    <div class="met_content_wrapper clearfix">
+        <div class="met_content_loading">
+            <figure class="met_ajax_loading"></figure>
+        </div>
+        @RenderBody()
+    </div>
+    <!-- Scripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!--[if lte IE 8]><script src="js/respond.min.js"></script><![endif]-->
+    <script src="~/Content/scripts/jquery.easing.js"></script>
+    <script src="~/Content/scripts/jquery.mCustomScrollbar.min.js"></script>
+    <script src="~/Content/scripts/jquery.mousewheel.min.js"></script>
+    <script src="~/Content/scripts/bootstrap.min.js"></script>
+    <script src="~/Content/scripts/jquery.mCustomScrollbar.min.js"></script>
+    <script src="~/Content/scripts/retina.js"></script>
+    <script src="~/Content/scripts/superfish.js"></script>
+    <script src="~/Content/scripts/hoverIntent.js"></script>
+    <script src="~/Content/scripts/flickrfeed.min.js"></script>
+    <script src="~/Content/scripts/caroufredsel.js"></script>
+    <script src="~/Content/scripts/imagesLoaded.js"></script>
+    <script src="~/Content/scripts/masonry.js"></script>
+    <script src="~/Content/scripts/isotope.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="~/Content/scripts/gmaps.js"></script>
+    <script src="~/Content/scripts/jquery.debounceresize.js"></script>
+    <script src="~/Content/scripts/jquery.hcsticky.min.js"></script>
+    <script src="~/Content/scripts/jquery.tubeplayer.js"></script>
+    <script src="~/Content/scripts/magnific-popup.js"></script>
+    <script src="~/Content/scripts/jquery.mixitup.min.js"></script>
+    <script src="~/Content/scripts/responsiveCarousel.min.js"></script>
+    <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+
+    <script src="~/Content/scripts/jquery.nouislider.min.js"></script>
+    <script src="~/Content/scripts/metcreative.html5audio.js"></script>
+
+    <script src="~/Content/scripts/scripts.js"></script>
+    <script>
+        /**
+         * Codes Below are for listening Events of Vimeo and Youtube players.
+         * Vimeo Player requires Froogaloop2 plugin.
+         * This code has to be on page not in a js file in order to work.
+         *
+         * Youtube Player requires tubeplayer plugin for the API controls
+         * There is no need it to be on page, you can put that code in a js file
+         * But I put it here to prevent any confusion
+         */
+        $(document).ready(function () {
+            var vimeoPlayers = $('iframe.vimeo'),
+                player;
+
+            if (vimeoPlayers.get(0)) {
+                for (var i = 0, length = vimeoPlayers.length; i < length; i++) {
+                    player = vimeoPlayers[i];
+                    $f(player).addEvent('ready', ready);
+                }
+
+                function addEvent(element, eventName, callback) {
+                    if (element.addEventListener) {
+                        element.addEventListener(eventName, callback, false);
+                    }
+                    else {
+                        element.attachEvent('on' + eventName, callback);
+                    }
+                }
+
+                /**
+                 * Called once a vimeo player is loaded and ready to receive
+                 * commands. You can add events and make api calls only after this
+                 * function has been called.
+                 */
+                function ready(player_id) {
+                    // Keep a reference to Froogaloop for this player
+                    var froogaloop = $f(player_id);
+
+                    froogaloop.addEvent('play', function (data) {
+                        CoreJS.verticalCarouselHider('hide');
+                        CoreJS.verticalCarouselAction('stop');
+                    });
+
+                    froogaloop.addEvent('pause', function (data) {
+                        CoreJS.verticalCarouselHider('show');
+                        CoreJS.verticalCarouselAction('play');
+                    });
+
+                    froogaloop.addEvent('finish', function (data) {
+                        CoreJS.verticalCarouselHider('show');
+                        CoreJS.verticalCarouselAction('play');
+                    });
+                }
+            }
+
+            if ($("#youtube-player-container").get(0)) {
+                $("#youtube-player-container").tubeplayer({
+                    // width: 425, the width of the player
+                    // height: 355, the height of the player
+                    start: 0,
+                    showControls: 1, // whether the player should have the controls visible, 0 or 1
+                    showRelated: 0, // show the related videos when the player ends, 0 or 1
+                    autoPlay: false, // whether the player should autoplay the video, 0 or 1
+                    autoHide: true,
+                    theme: "dark", // possible options: "dark" or "light"
+                    color: "red", // possible options: "red" or "white"
+                    showinfo: false, // if you want the player to include details about the video
+                    modestbranding: true, // specify to include/exclude the YouTube watermark
+                    // the location to the swfobject import for the flash player, default to Google's CDN
+                    wmode: "transparent", // note: transparent maintains z-index, but disables GPU acceleration
+                    swfobjectURL: "http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js",
+                    loadSWFObject: true, // if you include swfobject, set to false
+                    // HTML5 specific attrs
+                    // Player Trigger Specific Functionality
+                    allowFullScreen: "true", // true by default, allow user to go full screen
+                    initialVideo: "csgJgv44beM", // the video that is loaded into the player
+                    preferredQuality: "hd720",// preferred quality: default, small, medium, large, hd720
+                    iframed: true,
+                    onPlay: function (id) { }, // after the play method is called
+                    onPause: function () { }, // after the pause method is called
+                    onStop: function () { }, // after the player is stopped
+                    onSeek: function (time) { }, // after the video has been seeked to a defined point
+                    onMute: function () { }, // after the player is muted
+                    onUnMute: function () { }, // after the player is unmuted
+                    onPlayerPlaying: function (id) {
+                        CoreJS.verticalCarouselHider('hide');
+                        CoreJS.verticalCarouselAction('stop');
+                    }, // after the play method is called
+                    onPlayerPaused: function () {
+                        CoreJS.verticalCarouselHider('show');
+                        CoreJS.verticalCarouselAction('play');
+                    }, // after the pause method is called
+                    onPlayerEnded: function () {
+                        CoreJS.verticalCarouselHider('show');
+                        CoreJS.verticalCarouselAction('play');
+                    }, // after the player is stopped
+                    onPlayerBuffering: function () { }, // when the player returns a state of buffering
+                    onPlayerCued: function () { }, // when the player returns a state of cued
+                    onQualityChange: function (quality) { }, // a function callback for when the quality of a video is determined
+                    // Error State Specific Functionality
+                    onErrorNotFound: function () { }, // if a video cant be found
+                    onErrorNotEmbeddable: function () { }, // if a video isnt embeddable
+                    onErrorInvalidParameter: function () { } // if we've got an invalid param
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
+

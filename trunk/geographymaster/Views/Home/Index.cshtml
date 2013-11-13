@@ -1,389 +1,114 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/_BasicLayout.cshtml";
+    ViewBag.Title = "Geography Master";
 }
-
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-
-    <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-    <link rel="shortcut icon" href="img/fav.png">
-
-    <title>Geography Master</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Facebook Share Components -->
-
-
-    <!-- CSS -->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow' rel='stylesheet' type='text/css'>
-
-    <link href='~/Content/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
-    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
-
-    <link href="~/Content/css/metcreative.audio/nouislider.fox.css" rel="stylesheet" type="text/css">
-    <link href="~/Content/css/metcreative.audio/nouislider.space.css" rel="stylesheet" type="text/css">
-    <link href="~/Content/css/metcreative.audio/style.css" rel="stylesheet" type="text/css">
-
-    <link href='~/Content/css/superfish.css' rel='stylesheet' type='text/css'>
-    <link href='~/Content/css/magnific-popup.css' rel='stylesheet' type='text/css'>
-    <link href='~/Content/css/jquery.mCustomScrollbar.css' rel='stylesheet' type='text/css'>
-    <link href='~/Content/css/style.css' rel='stylesheet' type='text/css'>
-    <link href='~/Content/css/sresponsive.css' rel='stylesheet' type='text/css'>
-
-    <!--[if lte IE 8]>
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300" />
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400" />
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:600" />
-
-	<link rel="stylesheet" href="css/lte-ie8.css" />
-	<![endif]-->
-
-    <script src="~/Content/scripts/modernizr.js"></script>
-
-    <style id="colorChanges" type="text/css">
-			</style>
-</head>
-<body class="clearfix">
-    <aside class="met_left_bar">
-        <a href="index.html" class="met_logo">
-            <img src="~/Content/photos/logo.png" alt="" height="108px" /></a>
-
-        <nav>
-            <ul class="met_clean_list">
-                <li class="met_menu_has_sub">
-                    <a href="index.html">Home</a>
-                    <ul class="met_clean_list">
-                        <li><a href="index.html">Home 1</a></li>
-                        <li><a href="index2.html">Home 2</a></li>
-                        <li><a href="index3.html">Home 3</a></li>
-                        <li><a href="index4.html">Home 4</a></li>
-                    </ul>
-                </li>
-                <li class="met_menu_has_sub">
-                    <a href="portfolio_stripe_vertical.html">Portfolio</a>
-                    <ul class="met_clean_list">
-                        <li><a href="portfolio_stripe_vertical.html">Vertical</a></li>
-                        <li><a href="portfolio_stripe_horizontal.html">Horizontal</a></li>
-                        <li><a href="project_details.html">Project Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="met_sidebar_hide_seek">
-            <div class="met_sidebar_hide_seek_contents">
-
-                <div class="met_left_bar_box met_sidebar_full clearfix">
-                    <div class="met_left_bar_title">
-                        <h4>Music Player</h4>
-                    </div>
-                    <div class="met_mini_audioplayer clearfix">
-                        <audio id="audio">
-                            <source src="sound/love_your_life.mp3" type="audio/mpeg">
-                            Your browser does not support HTML5 Auido Player, Please Install either of Google Chrome, Firefox, Opera, IE10.
-                        </audio>
-
-                        <a href="#" class="met_ma_play_stop met_color_transition"><i class="fa fa-caret-right"></i></a>
-
-                        <div class="met_ma_time"><span class="met_ma_mins">00</span>:<span class="met_ma_secs">00</span></div>
-                        <a href="#" class="met_ma_volume met_color_transition"><i class="fa fa-volume-up"></i></a>
-
-                        <div class="met_ma_progress">
-                            <div class="met_ma_current_progress met_bgcolor" style="width: 0;"></div>
-                        </div>
-                    </div>
+<section class="met_content met_full_portfolio columns_3">
+    <div class="met_fp_item mix illustration">
+        <div class="met_fp_item_preview">
+            <img src="~/Content/photos/index/europe.gif" alt="" />
+            <div class="met_fpip_overlay met_vcenter">
+                <div class="met_fpipo_box">
+                    @Html.ActionLink("Play", "Category", new { category = "europe" })
+                    @*TODO: send categoryId from Model in the ActionLink *@
+                    <a href="~/Content/photos/indexBig/europe.gif" rel="lb_02" class="met_color_transition">View</a>
                 </div>
             </div>
-            <div class="met_sidebar_hider_seeker"><a href="#"><i class="fa fa-chevron-down"></i></a></div>
         </div>
-    </aside>
-    <div class="met_content_wrapper clearfix">
-        <div class="met_content_loading">
-            <figure class="met_ajax_loading"></figure>
+        <div class="met_fp_item_text">
+            <div class="met_fp_item_text_container">
+                <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Europe</a></h3>
+                <p>The smallest continent after Australia, Europe has a wide variety of climates and landscapes. The tundra of the far north gives way to a cool, wet, heavily forested region. The North European Plain is well-drained, fertile,and rich in oil, coal,and natural gas. The shores of the Mediterranean are generally warm, dry, and hilly, ideal for cultivating olives, citrus fruit, and grapes. A great curve of mountain ranges, including the Pyrenees, Alps, and Carpathians, divides north from south. To the east, the rolling plains of European Russia and the Ukraine, clad in coniferous forests or cultivated for wheat, run up to the Ural Mountains.</p>
+            </div>
         </div>
-        <section class="met_content met_full_portfolio columns_3">
-            <div class="met_fp_item mix illustration">
-                <div href="portfolio_details.html" class="met_fp_item_preview">
-                    <img src="~/Content/photos/europe.gif" alt="" />
-                    <div class="met_fpip_overlay met_vcenter">
-                        <div class="met_fpipo_box">
-                            <a href="project_details.html" class="met_color_transition">Read</a>
-                            <a href="~/Content/photos/europe.png" rel="lb_02" class="met_color_transition">View</a>
-                        </div>
-                        <div class="met_fpip_gallery_items">
-                            <a href="~/Content/photos/indexBig/3.jpg" rel="lb_02">View</a>
-                            <a href="~/Content/photos/indexBig/4.html" rel="lb_02">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="met_fp_item_text">
-                    <div class="met_fp_item_text_container">
-                        <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Europe</a></h3>
-                        <p>The smallest continent after Australia, Europe has a wide variety of climates and landscapes. The tundra of the far north gives way to a cool, wet, heavily forested region. The North European Plain is well-drained, fertile,and rich in oil, coal,and natural gas. The shores of the Mediterranean are generally warm, dry, and hilly, ideal for cultivating olives, citrus fruit, and grapes. A great curve of mountain ranges, including the Pyrenees, Alps, and Carpathians, divides north from south. To the east, the rolling plains of European Russia and the Ukraine, clad in coniferous forests or cultivated for wheat, run up to the Ural Mountains.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="met_fp_item mix illustration">
-                <div href="portfolio_details.html" class="met_fp_item_preview">
-                    <img src="~/Content/photos/asia.gif" alt="" />
-                    <div class="met_fpip_overlay met_vcenter">
-                        <div class="met_fpipo_box">
-                            <a href="project_details.html" class="met_color_transition">Read</a>
-                            <a href="~/Content/photos/indexBig/2.jpg" rel="lb_02" class="met_color_transition">View</a>
-                        </div>
-                        <div class="met_fpip_gallery_items">
-                            <a href="~/Content/photos/indexBig/3.jpg" rel="lb_02">View</a>
-                            <a href="~/Content/photos/indexBig/4.html" rel="lb_02">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="met_fp_item_text">
-                    <div class="met_fp_item_text_container">
-                        <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Asia</a></h3>
-                        <p>The Ural Mountains form a huge natural boundary between European and Asian Russia. East of the Urals, vast areas of windswept grassland stretch as far as the Pacific Ocean. The central Asian republics lie along the ancient Silk Road between Asia and Europe, where traditional nomadic lifestyles are being replaced by agriculture and mineral prospecting.</p>
-                    </div>
-                </div>
-            </div>
-            @*<div class="met_fp_item mix illustration">
-                <div href="portfolio_details.html" class="met_fp_item_preview">
-                    <img src="~/Content/photos/australia_oceania.gif" alt="" />
-                    <div class="met_fpip_overlay met_vcenter">
-                        <div class="met_fpipo_box">
-                            <a href="project_details.html" class="met_color_transition">Read</a>
-                            <a href="https://vimeo.com/54010374" rel="video_lb_01" class="met_color_transition">Watch</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="met_fp_item_text">
-                    <div class="met_fp_item_text_container">
-                        <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Vimeo Video</a></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas viverra suscipit imperdiet. Maecenas at lacus commodo, rutrum odio ut, congue odio. Nam eu massa id ante egestas suscipit eu ac ligula.</p>
-                    </div>
-                </div>
-            </div>*@
-            <div class="met_fp_item mix illustration">
-                <div href="portfolio_details.html" class="met_fp_item_preview">
-                    <img src="~/Content/photos/australia_oceania.gif" alt="" />
-                    <div class="met_fpip_overlay met_vcenter">
-                        <div class="met_fpipo_box">
-                            <a href="project_details.html" class="met_color_transition">Read</a>
-                            <a href="http://www.youtube.com/watch?v=oUbwvPY9xro" rel="video_lb_02" class="met_color_transition">Watch</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="met_fp_item_text">
-                    <div class="met_fp_item_text_container">
-                        <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Australia and Oceania</a></h3>
-                        <p>Oceania, a continent of islands stretching across a vast area of the Pacific Ocean, is home to only 0.5 per cent of the world's population. Dominated by Australia, it includes few other countries with significant land mass apart from New Zealand, Papua New Guinea, and Fiji, but has a myriad volcanic and coral islands, split into three main groups: Micronesia, Melanesia, and Polynesia. Australia, flat and dry, is sparsely populated, most people living along the coastal lowlands, especially in the southeast. Its first inhabitants, the Aboriginal peoples, retain some of their original lands in the interior, but the European and Asian settlers of recent centuries form most of the population. Australia is rich in minerals, such as gold, uranium, and iron ore, which are the basis of its prosperity.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="met_fp_item mix photoshop">
-                <div href="portfolio_details.html" class="met_fp_item_preview">
-                    <img src="~/Content/photos/south_america.gif" alt="" />
-                    <div class="met_fpip_overlay met_vcenter">
-                        <div class="met_fpipo_box">
-                            <a href="project_details.html" class="met_color_transition">Read</a>
-                            <a href="~/Content/photos/indexBig/5.jpg" rel="lb_03" class="met_color_transition">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="met_fp_item_text">
-                    <div class="met_fp_item_text_container">
-                        <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">South America</a></h3>
-                        <p>The world 's fourth-largest continent includes one of its most important resources - the Amazonian rainforest. It is a major source of oxygen and includes half of all known living species, while the Amazon - the world 's second-longest river - contains one-fifth of the world 's fresh water. The Andes mountain chain reaches down South America 's western flank, sheltering the prairies of the Gran Chaco, the Pampas, and the wastes of the far south.Most South Americans are mestizo - of mixed European and Amerindian descent - and live in the coastal regions. Spanish is the most widely spoken language,and over 90% of South Americans are Roman Catholic. South America has massive mineral resources,many exploited by US and European multinationals.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="met_fp_item mix photoshop">
-                <div href="portfolio_details.html" class="met_fp_item_preview">
-                    <img src="~/Content/photos/north_america.gif" alt="" />
-                    <div class="met_fpip_overlay met_vcenter">
-                        <div class="met_fpipo_box">
-                            <a href="project_details.html" class="met_color_transition">Read</a>
-                            <a href="~/Content/photos/indexBig/6.jpg" rel="lb_04" class="met_color_transition">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="met_fp_item_text">
-                    <div class="met_fp_item_text_container">
-                        <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">North America</a></h3>
-                        <p>North America 's climate is as varied as its topography: much of Canada is snowbound or clothed in forest, its sparse population congregating along the US border. Along the continent 's western flank are the spectacular Rocky Mountains. To the east lie the older, wooded Appalachians. Between these are the Great Plains - grazed by herds of livestock or sown with cereals.. These plains were once home to tribes of native Americans, supplanted by incoming white settlers. The population and industry of the US are concentrated in the temperate northeast, while the drier south and west are rural and thinly populated. North America is rich in minerals and oil. Mexico has the world 's largest Spanish-speaking population. Central America and the Caribbean contain some 20 countries and numerous small islands. The climate is tropical and prone to storms,the landscape mountainous and volcanic.</p>
-
-                        @*                        <div class="met_fp_item_bottom">
-                            <a href="#" class="met_fp_item_share met_color_transition"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="met_fp_item_share met_color_transition"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="met_fp_item_share met_color_transition"><i class="fa fa-pinterest"></i></a>
-                            <a href="#" class="met_fp_item_share met_color_transition"><i class="fa fa-google-plus"></i></a>
-
-                            <a href="#" class="met_fp_item_comment_count met_color_transition"></a>
-                        </div>*@
-                    </div>
-                </div>
-            </div>
-            <div class="met_fp_item mix photoshop">
-                <div href="portfolio_details.html" class="met_fp_item_preview">
-                    <img src="~/Content/photos/africa.gif" alt="" />
-                    <div class="met_fpip_overlay met_vcenter">
-                        <div class="met_fpipo_box">
-                            <a href="project_details.html" class="met_color_transition">Read</a>
-                            <a href="~/Content/photos/indexBig/7.jpg" rel="lb_05" class="met_color_transition">View</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="met_fp_item_text">
-                    <div class="met_fp_item_text_container">
-                        <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Africa</a></h3>
-                        <p>Africa is the second-largest continent after Asia. It is dominated by the Sahara in the north and the Great Rift Valley in the east. The Mediterranean climate of the extreme north and south enables cultivation of grapes and other fruit. A belt of tropical rainforest lies along the Equator, while Africa's great tropical grasslands provide grazing for herds of wild animals and domestic livestock. A narrow strip of Egypt is watered by the world's longest river, the Nile, which has sustained communities from prehistoric times. The centre and south of the continent are rich in minerals. Just over one-tenth of the world's population lives in Africa - a wide variety of peoples with their own distinctive languages and cultures. Although Islam and Christianity are widespread, many Africans adhere to their own local customs and religious beliefs.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
-    <!-- Scripts -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!--[if lte IE 8]><script src="js/respond.min.js"></script><![endif]-->
-    <script src="~/Content/scripts/jquery.easing.js"></script>
-    <script src="~/Content/scripts/jquery.mCustomScrollbar.min.js"></script>
-    <script src="~/Content/scripts/jquery.mousewheel.min.js"></script>
-    <script src="~/Content/scripts/bootstrap.min.js"></script>
-    <script src="~/Content/scripts/jquery.mCustomScrollbar.min.js"></script>
-    <script src="~/Content/scripts/retina.js"></script>
-    <script src="~/Content/scripts/superfish.js"></script>
-    <script src="~/Content/scripts/hoverIntent.js"></script>
-    <script src="~/Content/scripts/flickrfeed.min.js"></script>
-    <script src="~/Content/scripts/caroufredsel.js"></script>
-    <script src="~/Content/scripts/imagesLoaded.js"></script>
-    <script src="~/Content/scripts/masonry.js"></script>
-    <script src="~/Content/scripts/isotope.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="~/Content/scripts/gmaps.js"></script>
-    <script src="~/Content/scripts/jquery.debounceresize.js"></script>
-    <script src="~/Content/scripts/jquery.hcsticky.min.js"></script>
-    <script src="~/Content/scripts/jquery.tubeplayer.js"></script>
-    <script src="~/Content/scripts/magnific-popup.js"></script>
-    <script src="~/Content/scripts/jquery.mixitup.min.js"></script>
-    <script src="~/Content/scripts/responsiveCarousel.min.js"></script>
-    <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
 
-    <script src="~/Content/scripts/jquery.nouislider.min.js"></script>
-    <script src="~/Content/scripts/metcreative.html5audio.js"></script>
+    <div class="met_fp_item mix illustration">
+        <div class="met_fp_item_preview">
+            <img src="~/Content/photos/index/asia.gif" alt="" />
+            <div class="met_fpip_overlay met_vcenter">
+                <div class="met_fpipo_box">
+                    @Html.ActionLink("Play", "Category", new { category = "asia" })
+                    <a href="~/Content/photos/indexBig/asia.gif" rel="lb_02" class="met_color_transition">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="met_fp_item_text">
+            <div class="met_fp_item_text_container">
+                <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Asia</a></h3>
+                <p>The Ural Mountains form a huge natural boundary between European and Asian Russia. East of the Urals, vast areas of windswept grassland stretch as far as the Pacific Ocean. The central Asian republics lie along the ancient Silk Road between Asia and Europe, where traditional nomadic lifestyles are being replaced by agriculture and mineral prospecting.</p>
+            </div>
+        </div>
+    </div>
 
-    <script src="~/Content/scripts/scripts.js"></script>
-    <script>
-        /**
-         * Codes Below are for listening Events of Vimeo and Youtube players.
-         * Vimeo Player requires Froogaloop2 plugin.
-         * This code has to be on page not in a js file in order to work.
-         *
-         * Youtube Player requires tubeplayer plugin for the API controls
-         * There is no need it to be on page, you can put that code in a js file
-         * But I put it here to prevent any confusion
-         */
-        $(document).ready(function () {
-            var vimeoPlayers = $('iframe.vimeo'),
-                player;
+    <div class="met_fp_item mix illustration">
+        <div class="met_fp_item_preview">
+            <img src="~/Content/photos/index/australia_oceania.gif" alt="" />
+            <div class="met_fpip_overlay met_vcenter">
+                <div class="met_fpipo_box">
+                    @Html.ActionLink("Play", "Category", new { category = "australia_oceania" })
+                    <a href="~/Content/photos/indexBig/australia_oceania.gif" rel="lb_02" class="met_color_transition">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="met_fp_item_text">
+            <div class="met_fp_item_text_container">
+                <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Australia and Oceania</a></h3>
+                <p>Oceania, a continent of islands stretching across a vast area of the Pacific Ocean, is home to only 0.5 per cent of the world's population. Dominated by Australia, it includes few other countries with significant land mass apart from New Zealand, Papua New Guinea, and Fiji, but has a myriad volcanic and coral islands, split into three main groups: Micronesia, Melanesia, and Polynesia. Australia, flat and dry, is sparsely populated, most people living along the coastal lowlands, especially in the southeast. Its first inhabitants, the Aboriginal peoples, retain some of their original lands in the interior, but the European and Asian settlers of recent centuries form most of the population. Australia is rich in minerals, such as gold, uranium, and iron ore, which are the basis of its prosperity.</p>
+            </div>
+        </div>
+    </div>
 
-            if (vimeoPlayers.get(0)) {
-                for (var i = 0, length = vimeoPlayers.length; i < length; i++) {
-                    player = vimeoPlayers[i];
-                    $f(player).addEvent('ready', ready);
-                }
+    <div class="met_fp_item mix photoshop">
+        <div class="met_fp_item_preview">
+            <img src="~/Content/photos/index/south_america.gif" alt="" />
+            <div class="met_fpip_overlay met_vcenter">
+                <div class="met_fpipo_box">
+                    @Html.ActionLink("Play", "Category", new { category = "south_america" })
+                    <a href="~/Content/photos/indexBig/south_america.gif" rel="lb_02" class="met_color_transition">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="met_fp_item_text">
+            <div class="met_fp_item_text_container">
+                <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">South America</a></h3>
+                <p>The world 's fourth-largest continent includes one of its most important resources - the Amazonian rainforest. It is a major source of oxygen and includes half of all known living species, while the Amazon - the world 's second-longest river - contains one-fifth of the world 's fresh water. The Andes mountain chain reaches down South America 's western flank, sheltering the prairies of the Gran Chaco, the Pampas, and the wastes of the far south.Most South Americans are mestizo - of mixed European and Amerindian descent - and live in the coastal regions. Spanish is the most widely spoken language,and over 90% of South Americans are Roman Catholic. South America has massive mineral resources,many exploited by US and European multinationals.</p>
+            </div>
+        </div>
+    </div>
 
-                function addEvent(element, eventName, callback) {
-                    if (element.addEventListener) {
-                        element.addEventListener(eventName, callback, false);
-                    }
-                    else {
-                        element.attachEvent('on' + eventName, callback);
-                    }
-                }
+    <div class="met_fp_item mix photoshop">
+        <div class="met_fp_item_preview">
+            <img src="~/Content/photos/index/north_america.gif" alt="" />
+            <div class="met_fpip_overlay met_vcenter">
+                <div class="met_fpipo_box">
+                    @Html.ActionLink("Play", "Category", new { category = "north_america" })
+                    <a href="~/Content/photos/indexBig/north_america.gif" rel="lb_02" class="met_color_transition">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="met_fp_item_text">
+            <div class="met_fp_item_text_container">
+                <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">North America</a></h3>
+                <p>North America 's climate is as varied as its topography: much of Canada is snowbound or clothed in forest, its sparse population congregating along the US border. Along the continent 's western flank are the spectacular Rocky Mountains. To the east lie the older, wooded Appalachians. Between these are the Great Plains - grazed by herds of livestock or sown with cereals.. These plains were once home to tribes of native Americans, supplanted by incoming white settlers. The population and industry of the US are concentrated in the temperate northeast, while the drier south and west are rural and thinly populated. North America is rich in minerals and oil. Mexico has the world 's largest Spanish-speaking population. Central America and the Caribbean contain some 20 countries and numerous small islands. The climate is tropical and prone to storms,the landscape mountainous and volcanic.</p>
+            </div>
+        </div>
+    </div>
 
-                /**
-                 * Called once a vimeo player is loaded and ready to receive
-                 * commands. You can add events and make api calls only after this
-                 * function has been called.
-                 */
-                function ready(player_id) {
-                    // Keep a reference to Froogaloop for this player
-                    var froogaloop = $f(player_id);
-
-                    froogaloop.addEvent('play', function (data) {
-                        CoreJS.verticalCarouselHider('hide');
-                        CoreJS.verticalCarouselAction('stop');
-                    });
-
-                    froogaloop.addEvent('pause', function (data) {
-                        CoreJS.verticalCarouselHider('show');
-                        CoreJS.verticalCarouselAction('play');
-                    });
-
-                    froogaloop.addEvent('finish', function (data) {
-                        CoreJS.verticalCarouselHider('show');
-                        CoreJS.verticalCarouselAction('play');
-                    });
-                }
-            }
-
-            if ($("#youtube-player-container").get(0)) {
-                $("#youtube-player-container").tubeplayer({
-                    // width: 425, the width of the player
-                    // height: 355, the height of the player
-                    start: 0,
-                    showControls: 1, // whether the player should have the controls visible, 0 or 1
-                    showRelated: 0, // show the related videos when the player ends, 0 or 1
-                    autoPlay: false, // whether the player should autoplay the video, 0 or 1
-                    autoHide: true,
-                    theme: "dark", // possible options: "dark" or "light"
-                    color: "red", // possible options: "red" or "white"
-                    showinfo: false, // if you want the player to include details about the video
-                    modestbranding: true, // specify to include/exclude the YouTube watermark
-                    // the location to the swfobject import for the flash player, default to Google's CDN
-                    wmode: "transparent", // note: transparent maintains z-index, but disables GPU acceleration
-                    swfobjectURL: "http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js",
-                    loadSWFObject: true, // if you include swfobject, set to false
-                    // HTML5 specific attrs
-                    // Player Trigger Specific Functionality
-                    allowFullScreen: "true", // true by default, allow user to go full screen
-                    initialVideo: "csgJgv44beM", // the video that is loaded into the player
-                    preferredQuality: "hd720",// preferred quality: default, small, medium, large, hd720
-                    iframed: true,
-                    onPlay: function (id) { }, // after the play method is called
-                    onPause: function () { }, // after the pause method is called
-                    onStop: function () { }, // after the player is stopped
-                    onSeek: function (time) { }, // after the video has been seeked to a defined point
-                    onMute: function () { }, // after the player is muted
-                    onUnMute: function () { }, // after the player is unmuted
-                    onPlayerPlaying: function (id) {
-                        CoreJS.verticalCarouselHider('hide');
-                        CoreJS.verticalCarouselAction('stop');
-                    }, // after the play method is called
-                    onPlayerPaused: function () {
-                        CoreJS.verticalCarouselHider('show');
-                        CoreJS.verticalCarouselAction('play');
-                    }, // after the pause method is called
-                    onPlayerEnded: function () {
-                        CoreJS.verticalCarouselHider('show');
-                        CoreJS.verticalCarouselAction('play');
-                    }, // after the player is stopped
-                    onPlayerBuffering: function () { }, // when the player returns a state of buffering
-                    onPlayerCued: function () { }, // when the player returns a state of cued
-                    onQualityChange: function (quality) { }, // a function callback for when the quality of a video is determined
-                    // Error State Specific Functionality
-                    onErrorNotFound: function () { }, // if a video cant be found
-                    onErrorNotEmbeddable: function () { }, // if a video isnt embeddable
-                    onErrorInvalidParameter: function () { } // if we've got an invalid param
-                });
-            }
-        });
-    </script>
-</body>
-
-</html>
+    <div class="met_fp_item mix photoshop">
+        <div class="met_fp_item_preview">
+            <img src="~/Content/photos/index/africa.gif" alt="" />
+            <div class="met_fpip_overlay met_vcenter">
+                <div class="met_fpipo_box">
+                    @Html.ActionLink("Play", "Category", new { category = "africa" })
+                    <a href="~/Content/photos/indexBig/africa.gif" rel="lb_02" class="met_color_transition">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="met_fp_item_text">
+            <div class="met_fp_item_text_container">
+                <h3><a href="project_details.html" class="met_fp_item_link met_color_transition">Africa</a></h3>
+                <p>Africa is the second-largest continent after Asia. It is dominated by the Sahara in the north and the Great Rift Valley in the east. The Mediterranean climate of the extreme north and south enables cultivation of grapes and other fruit. A belt of tropical rainforest lies along the Equator, while Africa's great tropical grasslands provide grazing for herds of wild animals and domestic livestock. A narrow strip of Egypt is watered by the world's longest river, the Nile, which has sustained communities from prehistoric times. The centre and south of the continent are rich in minerals. Just over one-tenth of the world's population lives in Africa - a wide variety of peoples with their own distinctive languages and cultures. Although Islam and Christianity are widespread, many Africans adhere to their own local customs and religious beliefs.</p>
+            </div>
+        </div>
+    </div>
+</section>
