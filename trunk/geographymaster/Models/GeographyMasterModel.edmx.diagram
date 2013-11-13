@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d11d233dfd074b39ac6d08daac32ed46" Name="Diagram1">
+        <EntityTypeShape EntityType="GeographyMasterModel.Badge" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GeographyMasterModel.Category" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GeographyMasterModel.Hint" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="GeographyMasterModel.InfoBox" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GeographyMasterModel.Question" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GeographyMasterModel.Score" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GeographyMasterModel.Subcategory" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GeographyMasterModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="GeographyMasterModel.FK_Badge_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="GeographyMasterModel.FK_Score_Badge" ManuallyRouted="false" />
+        <AssociationConnector Association="GeographyMasterModel.FK_InfoBox_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="GeographyMasterModel.FK_Question_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="GeographyMasterModel.FK_Subcategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="GeographyMasterModel.FK_Hint_Question" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GeographyMasterModel.User" Width="1.5" PointX="5.08218382908133" PointY="0.53425112391554341" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
