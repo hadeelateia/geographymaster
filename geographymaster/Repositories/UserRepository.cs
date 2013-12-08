@@ -15,6 +15,11 @@ namespace geographymaster.Repositories
             return _db.Users.FirstOrDefault(b => b.IdUser == id);
         }
 
+        public Models.User GetUserByUsername(string username)
+        {
+            return _db.Users.FirstOrDefault(b => b.Username == username);
+        }
+
         public IEnumerable<Models.User> GetAllUsers()
         {
             return _db.Users.ToList();

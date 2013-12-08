@@ -1,0 +1,46 @@
+﻿@model geographymaster.Models.Question
+
+@{
+    ViewBag.Title = "AddQuestion";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="question-rectangle">
+        <fieldset class="question">
+            <label class="question-label">Question</label>
+
+            <div class="editor-label-question">
+                Category:
+            </div>
+            <div class="editor-field-question">
+                @Html.EditorFor(model => model.IdCategory)
+                @Html.ValidationMessageFor(model => model.IdCategory)
+            </div>
+
+            <div class="editor-label-question">
+                Question:
+            </div>
+            <div class="editor-field-question">
+                @Html.EditorFor(model => model.Question1)
+                @Html.ValidationMessageFor(model => model.Question1)
+            </div>
+
+            <div class="editor-label-question">
+                Number of stars:
+            </div>
+            <div class="editor-field-question">
+                @Html.EditorFor(model => model.NoStars)
+                @Html.ValidationMessageFor(model => model.NoStars)
+            </div>
+
+            <p class="submit-padding">
+                <input type="submit" value="Create" class="question-submit" />
+            </p>
+        </fieldset>
+    </div>
+}
