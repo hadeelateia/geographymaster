@@ -5,7 +5,7 @@ using System.Web;
 
 namespace geographymaster.Repositories
 {
-    public class QuestionRepository:IDisposable
+    public class QuestionRepository : IDisposable
     {
         private Models.GeographyMasterEntities _db = new Models.GeographyMasterEntities();
 

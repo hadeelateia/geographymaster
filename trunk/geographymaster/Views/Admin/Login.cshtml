@@ -1,0 +1,44 @@
+﻿@model geographymaster.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="login-rectangle">
+        <fieldset class="login">
+            <label class="login-label">Login</label>
+
+            <div class="editor-label-login">
+                @Html.LabelFor(model => model.Username)
+            </div>
+            <div class="editor-field-login">
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username)
+            </div>
+
+            <div class="editor-label-login">
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div class="editor-field-login">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+
+            <div class="editor-label-login">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+            </div>
+
+            <p class="submit-padding">
+                <input type="submit" value="Login" class="login-submit" />
+            </p>
+        </fieldset>
+    </div>
+}
