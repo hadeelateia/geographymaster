@@ -10,7 +10,7 @@ namespace geographymaster.Repositories
         private Models.GeographyMasterEntities _db = new Models.GeographyMasterEntities();
 
         # region -=CRUD=-
-        public Models.Category GetCategoryByID(int id)
+        public Models.Category GetCategoryByID(long id)
         {
             return _db.Categories.FirstOrDefault(b => b.IdCategory == id);
         }
