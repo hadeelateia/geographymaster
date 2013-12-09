@@ -14,23 +14,37 @@ namespace geographymaster.Controllers
     {
         UserRepository userRepository = new UserRepository();
         QuestionRepository questionRepository = new QuestionRepository();
-        CategoryRepository questionCategory = new CategoryRepository();
+        CategoryRepository categoryRepository = new CategoryRepository();
 
         [Authorize]
         [HttpPost]
-        public ActionResult AddQuestion(Question question)
+        public ActionResult AddQuestion(QuestionViewModel question)
         {
-            questionRepository.CreateNewQuestion(question);
-            questionRepository.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                Question newQuestion = new Question()
+                {
+                    IdCategory = question.CategoryId,
+                    Question1 = question.QuestionDetails.Question1,
+                    NoStars = question.QuestionDetails.NoStars
+                };
+                questionRepository.CreateNewQuestion(newQuestion);
+                questionRepository.SaveChanges();
 
-            return RedirectToAction("ListQuestions", "Admin");
+                return RedirectToAction("ListQuestions", "Admin");
+            }
+            else
+            {
+                return RedirectToAction("AddQuestion", "Admin");
+            }
+
         }
 
         [Authorize]
         [HttpGet]
         public ActionResult AddQuestion()
         {
-            return View(new Question());
+            return View(new QuestionViewModel() { Categories = categoryRepository.GetAllCategories() });
         }
 
         [HttpGet]
@@ -57,7 +71,7 @@ namespace geographymaster.Controllers
                                                         activeUser.Username,
                                                         DateTime.Now,
                                                         DateTime.Now.AddMinutes(45),
-                                                        model.RememberMe, 
+                                                        model.RememberMe,
                                                         userData);
                     string encTicket = FormsAuthentication.Encrypt(authTicket);
 
@@ -88,21 +102,25 @@ namespace geographymaster.Controllers
         public ActionResult EditQuestion(int idQuestion)
         {
             Question activeQuestion = questionRepository.GetQuestionByID(idQuestion);
-            
-            return View(activeQuestion);
+            IEnumerable<Category> activeCategories = categoryRepository.GetAllCategories();
+
+            return View(new QuestionViewModel() { QuestionDetails = activeQuestion, Categories = activeCategories, QuestionId = idQuestion });
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult EditQuestion(Question question, long idCategory)
+        public ActionResult EditQuestion(QuestionViewModel question)
         {
-            Question activeQuestion = questionRepository.GetQuestionByID(question.IdQuestion);
+            Question activeQuestion = questionRepository.GetQuestionByID(question.QuestionId);
 
-            activeQuestion.IdCategory = idCategory;
-            activeQuestion.NoStars = question.NoStars;
-            activeQuestion.Question1 = question.Question1;
+            if (activeQuestion != null && question.QuestionDetails.Question1 != null)
+            {
+                activeQuestion.IdCategory = question.CategoryId;
+                activeQuestion.NoStars = question.QuestionDetails.NoStars;
+                activeQuestion.Question1 = question.QuestionDetails.Question1;
 
-            questionRepository.SaveChanges();
+                questionRepository.SaveChanges();
+            }
 
             return RedirectToAction("ListQuestions", "Admin");
         }
@@ -121,7 +139,7 @@ namespace geographymaster.Controllers
         {
             questionRepository.DeleteQuestion(idQuestion);
             questionRepository.SaveChanges();
-            
+
             return RedirectToAction("ListQuestions", "Admin");
         }
     }

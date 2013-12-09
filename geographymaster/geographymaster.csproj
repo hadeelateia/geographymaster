@@ -150,6 +150,7 @@
     <Compile Include="Models\Question.cs">
       <DependentUpon>GeographyMasterModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\QuestionViewModel.cs" />
     <Compile Include="Models\Score.cs">
       <DependentUpon>GeographyMasterModel.tt</DependentUpon>
     </Compile>
