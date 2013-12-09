@@ -3620,6 +3620,13 @@ fieldset.login, fieldset.question {
     margin-top: 15%;
     margin-left: 25%;
 }
+fieldset.question-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 15%;
+    margin-left: 5%;
+}
 
 div.login-rectangle, div.question-rectangle {
     width: 300px;
@@ -3631,8 +3638,22 @@ div.login-rectangle, div.question-rectangle {
     margin-top: 15%;
     margin-left: 35%;
 }
-
+div.question-details-rectangle {
+    width: 380px;
+    height: 300px;
+    background-color: #1D526C;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 15%;
+    margin-left: 35%;
+}
 .login-label, .question-label {
+    color: white;
+    font: 600;
+    font-size: large;
+}
+.question-details-label {
     color: white;
     font: 600;
     font-size: large;
@@ -3649,11 +3670,66 @@ div.editor-field-login, div.editor-field-question {
     font: 600;
     font-size: small;
 }
-
+div.editor-field-edit {
+    color: #1D526C;
+    font: 600;
+    font-size: small;
+    width: 200px;
+}
 .login-submit, .question-submit {
     width: 155px;
 }
 
 .submit-padding {
     padding-top: 10px;
+}
+
+.edit-padding {
+    color: #1D526C;
+    padding-top: 10px;
+}
+
+div.edit-padding {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-left: 35%;
+}
+label.edit-padding {
+    font: 600;
+    font-size: large;
+    color: #1D526C;
+}
+
+p.edit-padding {
+    margin-left: auto;
+    margin-top: auto;
+    padding-left: 5%;
+}
+
+div.display-field-login {
+    font: 600;
+    font-size: small;
+    color: white;
+}
+
+div.display-label-login {
+    font: 600;
+    font-size: medium;
+    color: white;
+}
+p.question-details-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 45%;
+    margin-left: 48%;
+}
+
+p.login-links {
+       position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 45%;
+    margin-left: 45%;
 }

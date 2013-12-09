@@ -14,6 +14,7 @@ namespace geographymaster.Controllers
     {
         UserRepository userRepository = new UserRepository();
         QuestionRepository questionRepository = new QuestionRepository();
+        CategoryRepository questionCategory = new CategoryRepository();
 
         [Authorize]
         [HttpPost]
@@ -63,7 +64,7 @@ namespace geographymaster.Controllers
                     HttpCookie faCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encTicket);
                     Response.Cookies.Add(faCookie);
 
-                    return RedirectToAction("AddQuestion", "Admin");
+                    return RedirectToAction("ListQuestions", "Admin");
                 }
                 else
                 {
@@ -76,9 +77,52 @@ namespace geographymaster.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ViewResult ListQuestions()
         {
-            return View();
+            IEnumerable<Question> questions = questionRepository.GetAllQuestions();
+            return View(questions);
+        }
+
+        [Authorize]
+        public ActionResult EditQuestion(int idQuestion)
+        {
+            Question activeQuestion = questionRepository.GetQuestionByID(idQuestion);
+            
+            return View(activeQuestion);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult EditQuestion(Question question, long idCategory)
+        {
+            Question activeQuestion = questionRepository.GetQuestionByID(question.IdQuestion);
+
+            activeQuestion.IdCategory = idCategory;
+            activeQuestion.NoStars = question.NoStars;
+            activeQuestion.Question1 = question.Question1;
+
+            questionRepository.SaveChanges();
+
+            return RedirectToAction("ListQuestions", "Admin");
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ActionResult DetailsQuestion(long idQuestion)
+        {
+            Question activeQuestion = questionRepository.GetQuestionByID(idQuestion);
+
+            return View(activeQuestion);
+        }
+
+        [Authorize]
+        public ActionResult DeleteQuestion(long idQuestion)
+        {
+            questionRepository.DeleteQuestion(idQuestion);
+            questionRepository.SaveChanges();
+            
+            return RedirectToAction("ListQuestions", "Admin");
         }
     }
 }

@@ -1,0 +1,49 @@
+﻿@model geographymaster.Models.Question
+
+@{
+    ViewBag.Title = "EditQuestion";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="login-rectangle">
+        <fieldset class="login">
+
+            <div class="editor-label-login">
+                Category:
+            </div>
+            <div class="editor-field-edit">
+                @Html.EditorFor(model => model.Category.Continent)
+                @Html.ValidationMessageFor(model => model.Category.Continent)
+            </div>
+
+            <div class="editor-label-login">
+                Question:
+            </div>
+            <div class="editor-field-edit">
+                @Html.EditorFor(model => model.Question1)
+                @Html.ValidationMessageFor(model => model.Question1)
+            </div>
+
+            <div class="editor-label-login">
+                Number of stars:
+            </div>
+            <div class="editor-field-login">
+                @Html.EditorFor(model => model.NoStars)
+                @Html.ValidationMessageFor(model => model.NoStars)
+            </div>
+
+            <p class="submit-padding">
+                <input type="submit" value="Save" class="login-submit" />
+            </p>
+        </fieldset>
+    </div>
+}
+
+<p class="login-links">
+    [@Html.ActionLink("Back to List", "ListQuestions", "Admin")]
+</p>

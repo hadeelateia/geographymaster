@@ -1,0 +1,38 @@
+﻿@model geographymaster.Models.Question
+
+@{
+    ViewBag.Title = "DetailsQuestion";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<div class="question-details-rectangle">
+    <fieldset class="question-details">
+
+        <div class="display-label-login">
+            Category:
+        </div>
+        <div class="display-field-login">
+            @Html.DisplayFor(model => model.Category.Continent)
+        </div>
+
+        <div class="display-label-login">
+            Question:
+        </div>
+        <div class="display-field-login">
+            @Html.DisplayFor(model => model.Question1)
+        </div>
+
+        <div class="display-label-login">
+            Number of stars:
+        </div>
+        <div class="display-field-login">
+            @Html.DisplayFor(model => model.NoStars)
+        </div>
+    </fieldset>
+</div>
+
+<p class="question-details-links">
+    [@Html.ActionLink("Edit", "EditQuestion", new { idQuestion = Model.IdQuestion }) |
+    @Html.ActionLink("Back to List", "ListQuestions", "Admin")]
+</p>
+

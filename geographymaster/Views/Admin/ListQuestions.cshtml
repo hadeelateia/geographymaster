@@ -1,0 +1,43 @@
+﻿@model IEnumerable<geographymaster.Models.Question>
+
+@{
+    ViewBag.Title = "ListQuestions";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+<div class="edit-padding">
+    <label class="edit-padding">List of questions</label>
+    <p class="edit-padding">[@Html.ActionLink("Create New", "AddQuestion", "Admin")]</p>
+</div>
+
+<table>
+    <tr>
+        <th>Category
+        </th>
+        <th>Question
+        </th>
+        <th>Number of stars
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Continent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoStars)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditQuestion", new { idQuestion = item.IdQuestion, idCategory = item.Category.IdCategory }) |
+            @Html.ActionLink("Details", "DetailsQuestion", new { idQuestion = item.IdQuestion }) |
+            @Html.ActionLink("Delete", "DeleteQuestion", new { idQuestion = item.IdQuestion })
+            </td>
+        </tr>
+    }
+
+</table>

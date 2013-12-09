@@ -10,7 +10,7 @@ namespace geographymaster.Repositories
         private Models.GeographyMasterEntities _db = new Models.GeographyMasterEntities();
 
         # region -=CRUD=-
-        public Models.Question GetQuestionByID(int id)
+        public Models.Question GetQuestionByID(long id)
         {
             return _db.Questions.FirstOrDefault(b => b.IdQuestion == id);
         }
@@ -32,7 +32,7 @@ namespace geographymaster.Repositories
             return _db.SaveChanges();
         }
 
-        public void DeleteQuestion(int id)
+        public void DeleteQuestion(long id)
         {
             var question = GetQuestionByID(id);
             _db.Questions.Remove(question);
