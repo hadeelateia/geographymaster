@@ -1,4 +1,4 @@
-﻿@model geographymaster.Models.Question
+﻿@model geographymaster.Models.QuestionViewModel
 
 @{
     ViewBag.Title = "EditQuestion";
@@ -17,24 +17,25 @@
                 Category:
             </div>
             <div class="editor-field-edit">
-                @Html.EditorFor(model => model.Category.Continent)
-                @Html.ValidationMessageFor(model => model.Category.Continent)
+                @Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.Categories, "IdCategory", "Continent"))
+                @Html.ValidationMessageFor(model => model.Categories)
             </div>
 
             <div class="editor-label-login">
                 Question:
             </div>
             <div class="editor-field-edit">
-                @Html.EditorFor(model => model.Question1)
-                @Html.ValidationMessageFor(model => model.Question1)
+                @Html.HiddenFor(model => model.QuestionId)
+                @Html.EditorFor(model => model.QuestionDetails.Question1)
+                @Html.ValidationMessageFor(model => model.QuestionDetails.Question1)
             </div>
 
             <div class="editor-label-login">
                 Number of stars:
             </div>
             <div class="editor-field-login">
-                @Html.EditorFor(model => model.NoStars)
-                @Html.ValidationMessageFor(model => model.NoStars)
+                @Html.EditorFor(model => model.QuestionDetails.NoStars)
+                @Html.ValidationMessageFor(model => model.QuestionDetails.NoStars)
             </div>
 
             <p class="submit-padding">
