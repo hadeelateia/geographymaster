@@ -12,16 +12,9 @@ namespace geographymaster.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Subcategory
+    public partial class webpages_Roles
     {
-        public Subcategory()
-        {
-            this.Questions = new HashSet<Question>();
-        }
-    
-        public long IdSubcategory { get; set; }
-        public string Subcategory1 { get; set; }
-    
-        public virtual ICollection<Question> Questions { get; set; }
+        public int RoleId { get; set; }
+        public string RoleName { get; set; }
     }
 }

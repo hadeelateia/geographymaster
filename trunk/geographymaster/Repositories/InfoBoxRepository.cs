@@ -10,7 +10,7 @@ namespace geographymaster.Repositories
         private Models.GeographyMasterEntities _db = new Models.GeographyMasterEntities();
 
         # region -=CRUD=-
-        public Models.InfoBox GetInfoBoxByID(int id)
+        public Models.InfoBox GetInfoBoxByID(long id)
         {
             return _db.InfoBoxes.FirstOrDefault(b => b.IdInfoBox == id);
         }
@@ -32,7 +32,7 @@ namespace geographymaster.Repositories
             return _db.SaveChanges();
         }
 
-        public void DeleteInfoBox(int id)
+        public void DeleteInfoBox(long id)
         {
             var ib = GetInfoBoxByID(id);
             _db.InfoBoxes.Remove(ib);

@@ -119,59 +119,75 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Answer.cs">
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AnswerViewModel.cs" />
     <Compile Include="Models\Badge.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GeographyMasterModel.Context.cs">
+    <Compile Include="Models\GeographyMasterEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GeographyMasterModel.Context.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GeographyMasterModel.cs">
+    <Compile Include="Models\GeographyMasterEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\GeographyMasterModel.Designer.cs">
+    <Compile Include="Models\GeographyMasterEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GeographyMasterModel.edmx</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Hint.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\HintViewModel.cs" />
     <Compile Include="Models\InfoBox.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\InfoboxViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\Question.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\QuestionViewModel.cs" />
     <Compile Include="Models\Score.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Subcategory.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>GeographyMasterModel.tt</DependentUpon>
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserMembershipProvider.cs" />
+    <Compile Include="Models\webpages_Membership.cs">
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_OAuthMembership.cs">
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\webpages_Roles.cs">
+      <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\AnswerRepository.cs" />
     <Compile Include="Repositories\BadgeRepository.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
     <Compile Include="Repositories\HintRepository.cs" />
     <Compile Include="Repositories\InfoBoxRepository.cs" />
     <Compile Include="Repositories\QuestionRepository.cs" />
     <Compile Include="Repositories\ScoreRepository.cs" />
-    <Compile Include="Repositories\SubCategoryRepository.cs" />
+    <Compile Include="Repositories\SubcategoryRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -253,27 +269,6 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="Models\GeographyMasterModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GeographyMasterModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Models\GeographyMasterModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GeographyMasterModel.edmx</DependentUpon>
-      <LastGenOutput>GeographyMasterModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\GeographyMasterModel.edmx.diagram">
-      <DependentUpon>GeographyMasterModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\GeographyMasterModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GeographyMasterModel.edmx</DependentUpon>
-      <LastGenOutput>GeographyMasterModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
@@ -296,6 +291,54 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\DetailsQuestion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\GeographyMasterEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GeographyMasterEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\GeographyMasterEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GeographyMasterEntities.edmx</DependentUpon>
+      <LastGenOutput>GeographyMasterEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\GeographyMasterEntities.edmx.diagram">
+      <DependentUpon>GeographyMasterEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\GeographyMasterEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GeographyMasterEntities.edmx</DependentUpon>
+      <LastGenOutput>GeographyMasterEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\ListAnswers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\AddAnswer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\EditAnswer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\ListHints.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\AddHint.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\EditHint.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\AddInfobox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\ListInfoboxes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\EditInfobox.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

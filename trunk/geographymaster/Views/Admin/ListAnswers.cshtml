@@ -1,0 +1,40 @@
+﻿@model geographymaster.Models.AnswerViewModel
+
+@{
+    ViewBag.Title = "ListAnswers";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<div class="edit-padding">
+    <label class="edit-padding">List of answers</label>
+    <p class="edit-padding">[@Html.ActionLink("Create New", "AddAnswer", new { idQuestion = Model.IdQuestion })]</p>
+</div>
+
+<table>
+    <tr>
+        <th>Answer
+        </th>
+        <th>Is true
+        </th>
+        <th>CRUD actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Answers)
+    {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelitem => item.IdAnswer)
+                @Html.DisplayFor(modelItem => item.AnswerDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTrue)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditAnswer", new { idAnswer = item.IdAnswer }) |
+            @Html.ActionLink("Delete", "DeleteAnswer", new { idAnswer = item.IdAnswer })
+            </td>
+        </tr>
+    }
+
+</table>

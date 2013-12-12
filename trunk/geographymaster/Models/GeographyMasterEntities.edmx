@@ -1,0 +1,672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GeographyMasterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="GeographyMasterModelStoreContainer">
+          <EntitySet Name="Answer" EntityType="GeographyMasterModel.Store.Answer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Badge" EntityType="GeographyMasterModel.Store.Badge" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="GeographyMasterModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Hint" EntityType="GeographyMasterModel.Store.Hint" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="InfoBox" EntityType="GeographyMasterModel.Store.InfoBox" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Question" EntityType="GeographyMasterModel.Store.Question" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Score" EntityType="GeographyMasterModel.Store.Score" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subcategory" EntityType="GeographyMasterModel.Store.Subcategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="GeographyMasterModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="GeographyMasterModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Membership" EntityType="GeographyMasterModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="GeographyMasterModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Roles" EntityType="GeographyMasterModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Answer_Question" Association="GeographyMasterModel.Store.FK_Answer_Question">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Answer" EntitySet="Answer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Badge_Category" Association="GeographyMasterModel.Store.FK_Badge_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Badge" EntitySet="Badge" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hint_Question" Association="GeographyMasterModel.Store.FK_Hint_Question">
+            <End Role="Question" EntitySet="Question" />
+            <End Role="Hint" EntitySet="Hint" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoBox_Category" Association="GeographyMasterModel.Store.FK_InfoBox_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="InfoBox" EntitySet="InfoBox" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Category" Association="GeographyMasterModel.Store.FK_Question_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Subcategory" Association="GeographyMasterModel.Store.FK_Question_Subcategory">
+            <End Role="Subcategory" EntitySet="Subcategory" />
+            <End Role="Question" EntitySet="Question" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Badge" Association="GeographyMasterModel.Store.FK_Score_Badge">
+            <End Role="Badge" EntitySet="Badge" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="IdAnswer" />
+          </Key>
+          <Property Name="IdAnswer" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AnswerDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdQuestion" Type="bigint" Nullable="false" />
+          <Property Name="IsTrue" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Badge">
+          <Key>
+            <PropertyRef Name="IdBadge" />
+          </Key>
+          <Property Name="IdBadge" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Badge" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="NoStars" Type="int" Nullable="false" />
+          <Property Name="IdCategory" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Continent" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Hint">
+          <Key>
+            <PropertyRef Name="IdHint" />
+          </Key>
+          <Property Name="IdHint" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdQuestion" Type="bigint" Nullable="false" />
+          <Property Name="Hint" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InfoBox">
+          <Key>
+            <PropertyRef Name="IdInfoBox" />
+          </Key>
+          <Property Name="IdInfoBox" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCategory" Type="bigint" Nullable="false" />
+          <Property Name="InfoBox" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="IdQuestion" />
+          </Key>
+          <Property Name="IdQuestion" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IdCategory" Type="bigint" Nullable="false" />
+          <Property Name="IdSubcategory" Type="bigint" Nullable="false" />
+          <Property Name="Question" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NoStars" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="IdScore" />
+          </Key>
+          <Property Name="IdScore" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PlayerName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="IdBadge" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subcategory">
+          <Key>
+            <PropertyRef Name="IdSubcategory" />
+          </Key>
+          <Property Name="IdSubcategory" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Subcategory" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <Association Name="FK_Answer_Question">
+          <End Role="Question" Type="GeographyMasterModel.Store.Question" Multiplicity="1" />
+          <End Role="Answer" Type="GeographyMasterModel.Store.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="IdQuestion" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="IdQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Badge_Category">
+          <End Role="Category" Type="GeographyMasterModel.Store.Category" Multiplicity="1" />
+          <End Role="Badge" Type="GeographyMasterModel.Store.Badge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Badge">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hint_Question">
+          <End Role="Question" Type="GeographyMasterModel.Store.Question" Multiplicity="1" />
+          <End Role="Hint" Type="GeographyMasterModel.Store.Hint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="IdQuestion" />
+            </Principal>
+            <Dependent Role="Hint">
+              <PropertyRef Name="IdQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoBox_Category">
+          <End Role="Category" Type="GeographyMasterModel.Store.Category" Multiplicity="1" />
+          <End Role="InfoBox" Type="GeographyMasterModel.Store.InfoBox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="InfoBox">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Category">
+          <End Role="Category" Type="GeographyMasterModel.Store.Category" Multiplicity="1" />
+          <End Role="Question" Type="GeographyMasterModel.Store.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Subcategory">
+          <End Role="Subcategory" Type="GeographyMasterModel.Store.Subcategory" Multiplicity="1" />
+          <End Role="Question" Type="GeographyMasterModel.Store.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subcategory">
+              <PropertyRef Name="IdSubcategory" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="IdSubcategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Badge">
+          <End Role="Badge" Type="GeographyMasterModel.Store.Badge" Multiplicity="1" />
+          <End Role="Score" Type="GeographyMasterModel.Store.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Badge">
+              <PropertyRef Name="IdBadge" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="IdBadge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GeographyMasterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="GeographyMasterEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Answers" EntityType="GeographyMasterModel.Answer" />
+          <EntitySet Name="Badges" EntityType="GeographyMasterModel.Badge" />
+          <EntitySet Name="Categories" EntityType="GeographyMasterModel.Category" />
+          <EntitySet Name="Hints" EntityType="GeographyMasterModel.Hint" />
+          <EntitySet Name="InfoBoxes" EntityType="GeographyMasterModel.InfoBox" />
+          <EntitySet Name="Questions" EntityType="GeographyMasterModel.Question" />
+          <EntitySet Name="Scores" EntityType="GeographyMasterModel.Score" />
+          <EntitySet Name="Subcategories" EntityType="GeographyMasterModel.Subcategory" />
+          <EntitySet Name="sysdiagrams" EntityType="GeographyMasterModel.sysdiagram" />
+          <EntitySet Name="Users" EntityType="GeographyMasterModel.User" />
+          <EntitySet Name="webpages_Membership" EntityType="GeographyMasterModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="GeographyMasterModel.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="GeographyMasterModel.webpages_Roles" />
+          <AssociationSet Name="FK_Answer_Question" Association="GeographyMasterModel.FK_Answer_Question">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="Answer" EntitySet="Answers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Badge_Category" Association="GeographyMasterModel.FK_Badge_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Badge" EntitySet="Badges" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_Badge" Association="GeographyMasterModel.FK_Score_Badge">
+            <End Role="Badge" EntitySet="Badges" />
+            <End Role="Score" EntitySet="Scores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InfoBox_Category" Association="GeographyMasterModel.FK_InfoBox_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="InfoBox" EntitySet="InfoBoxes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Category" Association="GeographyMasterModel.FK_Question_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hint_Question" Association="GeographyMasterModel.FK_Hint_Question">
+            <End Role="Question" EntitySet="Questions" />
+            <End Role="Hint" EntitySet="Hints" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Question_Subcategory" Association="GeographyMasterModel.FK_Question_Subcategory">
+            <End Role="Subcategory" EntitySet="Subcategories" />
+            <End Role="Question" EntitySet="Questions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Answer">
+          <Key>
+            <PropertyRef Name="IdAnswer" />
+          </Key>
+          <Property Name="IdAnswer" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AnswerDescription" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IdQuestion" Type="Int64" Nullable="false" />
+          <Property Name="IsTrue" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Question" Relationship="GeographyMasterModel.FK_Answer_Question" FromRole="Answer" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Badge">
+          <Key>
+            <PropertyRef Name="IdBadge" />
+          </Key>
+          <Property Name="IdBadge" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Badge1" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="NoStars" Type="Int32" Nullable="false" />
+          <Property Name="IdCategory" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="GeographyMasterModel.FK_Badge_Category" FromRole="Badge" ToRole="Category" />
+          <NavigationProperty Name="Scores" Relationship="GeographyMasterModel.FK_Score_Badge" FromRole="Badge" ToRole="Score" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="IdCategory" />
+          </Key>
+          <Property Name="IdCategory" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Continent" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Badges" Relationship="GeographyMasterModel.FK_Badge_Category" FromRole="Category" ToRole="Badge" />
+          <NavigationProperty Name="InfoBoxes" Relationship="GeographyMasterModel.FK_InfoBox_Category" FromRole="Category" ToRole="InfoBox" />
+          <NavigationProperty Name="Questions" Relationship="GeographyMasterModel.FK_Question_Category" FromRole="Category" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="Hint">
+          <Key>
+            <PropertyRef Name="IdHint" />
+          </Key>
+          <Property Name="IdHint" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdQuestion" Type="Int64" Nullable="false" />
+          <Property Name="Hint1" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Question" Relationship="GeographyMasterModel.FK_Hint_Question" FromRole="Hint" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="InfoBox">
+          <Key>
+            <PropertyRef Name="IdInfoBox" />
+          </Key>
+          <Property Name="IdInfoBox" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCategory" Type="Int64" Nullable="false" />
+          <Property Name="InfoBox1" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Category" Relationship="GeographyMasterModel.FK_InfoBox_Category" FromRole="InfoBox" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="IdQuestion" />
+          </Key>
+          <Property Name="IdQuestion" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCategory" Type="Int64" Nullable="false" />
+          <Property Name="IdSubcategory" Type="Int64" Nullable="false" />
+          <Property Name="Question1" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="NoStars" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Answers" Relationship="GeographyMasterModel.FK_Answer_Question" FromRole="Question" ToRole="Answer" />
+          <NavigationProperty Name="Category" Relationship="GeographyMasterModel.FK_Question_Category" FromRole="Question" ToRole="Category" />
+          <NavigationProperty Name="Hints" Relationship="GeographyMasterModel.FK_Hint_Question" FromRole="Question" ToRole="Hint" />
+          <NavigationProperty Name="Subcategory" Relationship="GeographyMasterModel.FK_Question_Subcategory" FromRole="Question" ToRole="Subcategory" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="IdScore" />
+          </Key>
+          <Property Name="IdScore" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PlayerName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Score1" Type="Int32" Nullable="false" />
+          <Property Name="IdBadge" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Badge" Relationship="GeographyMasterModel.FK_Score_Badge" FromRole="Score" ToRole="Badge" />
+        </EntityType>
+        <EntityType Name="Subcategory">
+          <Key>
+            <PropertyRef Name="IdSubcategory" />
+          </Key>
+          <Property Name="IdSubcategory" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Subcategory1" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Questions" Relationship="GeographyMasterModel.FK_Question_Subcategory" FromRole="Subcategory" ToRole="Question" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="IdUser" />
+          </Key>
+          <Property Name="IdUser" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Answer_Question">
+          <End Role="Question" Type="GeographyMasterModel.Question" Multiplicity="1" />
+          <End Role="Answer" Type="GeographyMasterModel.Answer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="IdQuestion" />
+            </Principal>
+            <Dependent Role="Answer">
+              <PropertyRef Name="IdQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Badge_Category">
+          <End Role="Category" Type="GeographyMasterModel.Category" Multiplicity="1" />
+          <End Role="Badge" Type="GeographyMasterModel.Badge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Badge">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_Badge">
+          <End Role="Badge" Type="GeographyMasterModel.Badge" Multiplicity="1" />
+          <End Role="Score" Type="GeographyMasterModel.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Badge">
+              <PropertyRef Name="IdBadge" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="IdBadge" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InfoBox_Category">
+          <End Role="Category" Type="GeographyMasterModel.Category" Multiplicity="1" />
+          <End Role="InfoBox" Type="GeographyMasterModel.InfoBox" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="InfoBox">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Category">
+          <End Role="Category" Type="GeographyMasterModel.Category" Multiplicity="1" />
+          <End Role="Question" Type="GeographyMasterModel.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="IdCategory" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="IdCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hint_Question">
+          <End Role="Question" Type="GeographyMasterModel.Question" Multiplicity="1" />
+          <End Role="Hint" Type="GeographyMasterModel.Hint" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Question">
+              <PropertyRef Name="IdQuestion" />
+            </Principal>
+            <Dependent Role="Hint">
+              <PropertyRef Name="IdQuestion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Question_Subcategory">
+          <End Role="Subcategory" Type="GeographyMasterModel.Subcategory" Multiplicity="1" />
+          <End Role="Question" Type="GeographyMasterModel.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subcategory">
+              <PropertyRef Name="IdSubcategory" />
+            </Principal>
+            <Dependent Role="Question">
+              <PropertyRef Name="IdSubcategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GeographyMasterModelStoreContainer" CdmEntityContainer="GeographyMasterEntities1">
+          <EntitySetMapping Name="Answers">
+            <EntityTypeMapping TypeName="GeographyMasterModel.Answer">
+              <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="IdAnswer" ColumnName="IdAnswer" />
+                <ScalarProperty Name="AnswerDescription" ColumnName="AnswerDescription" />
+                <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+                <ScalarProperty Name="IsTrue" ColumnName="IsTrue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Badges">
+            <EntityTypeMapping TypeName="GeographyMasterModel.Badge">
+              <MappingFragment StoreEntitySet="Badge">
+                <ScalarProperty Name="IdBadge" ColumnName="IdBadge" />
+                <ScalarProperty Name="Badge1" ColumnName="Badge" />
+                <ScalarProperty Name="NoStars" ColumnName="NoStars" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="GeographyMasterModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="Continent" ColumnName="Continent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hints">
+            <EntityTypeMapping TypeName="GeographyMasterModel.Hint">
+              <MappingFragment StoreEntitySet="Hint">
+                <ScalarProperty Name="IdHint" ColumnName="IdHint" />
+                <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+                <ScalarProperty Name="Hint1" ColumnName="Hint" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoBoxes">
+            <EntityTypeMapping TypeName="GeographyMasterModel.InfoBox">
+              <MappingFragment StoreEntitySet="InfoBox">
+                <ScalarProperty Name="IdInfoBox" ColumnName="IdInfoBox" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="InfoBox1" ColumnName="InfoBox" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="GeographyMasterModel.Question">
+              <MappingFragment StoreEntitySet="Question">
+                <ScalarProperty Name="IdQuestion" ColumnName="IdQuestion" />
+                <ScalarProperty Name="IdCategory" ColumnName="IdCategory" />
+                <ScalarProperty Name="IdSubcategory" ColumnName="IdSubcategory" />
+                <ScalarProperty Name="Question1" ColumnName="Question" />
+                <ScalarProperty Name="NoStars" ColumnName="NoStars" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scores">
+            <EntityTypeMapping TypeName="GeographyMasterModel.Score">
+              <MappingFragment StoreEntitySet="Score">
+                <ScalarProperty Name="IdScore" ColumnName="IdScore" />
+                <ScalarProperty Name="PlayerName" ColumnName="PlayerName" />
+                <ScalarProperty Name="Score1" ColumnName="Score" />
+                <ScalarProperty Name="IdBadge" ColumnName="IdBadge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subcategories">
+            <EntityTypeMapping TypeName="GeographyMasterModel.Subcategory">
+              <MappingFragment StoreEntitySet="Subcategory">
+                <ScalarProperty Name="IdSubcategory" ColumnName="IdSubcategory" />
+                <ScalarProperty Name="Subcategory1" ColumnName="Subcategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GeographyMasterModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="GeographyMasterModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="GeographyMasterModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="GeographyMasterModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="GeographyMasterModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

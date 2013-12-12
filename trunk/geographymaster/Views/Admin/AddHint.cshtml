@@ -1,0 +1,41 @@
+﻿@model geographymaster.Models.HintViewModel
+
+@{
+    ViewBag.Title = "AddHint";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="question-rectangle">
+        <fieldset class="question">
+            <label class="question-label">Hint</label>
+
+
+            <div class="editor-label-login">
+                Hint:
+            </div>
+            <div class="editor-field-edit">
+                @Html.EditorFor(model => model.HintDescription)
+                @Html.ValidationMessageFor(model => model.HintDescription)
+            </div>
+
+            <div class="editor-label-login">
+                Question:
+            </div>
+            <div class="editor-field-edit">
+                @Html.HiddenFor(model => model.IdQuestion)
+                @Html.TextAreaFor(model => model.QuestionDescription)
+                @Html.ValidationMessageFor(model => model.QuestionDescription)
+            </div>
+
+
+            <p class="submit-padding">
+                <input type="submit" value="Create" class="question-submit" />
+            </p>
+        </fieldset>
+    </div>
+}

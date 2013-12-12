@@ -23,6 +23,14 @@
             </div>
 
             <div class="editor-label-question">
+                Subcategory:
+            </div>
+            <div class="editor-field-question">
+                @Html.DropDownListFor(model => model.SubcatetegoryId, new SelectList(Model.Subcategories, "IdSubcategory", "Subcategory1"))
+                @Html.ValidationMessageFor(model => model.Subcategories)
+            </div>
+
+            <div class="editor-label-question">
                 Question:
             </div>
             <div class="editor-field-question">

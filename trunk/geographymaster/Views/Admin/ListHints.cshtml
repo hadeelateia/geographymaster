@@ -1,0 +1,35 @@
+﻿@model geographymaster.Models.HintViewModel
+
+@{
+    ViewBag.Title = "ListHints";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<div class="edit-padding">
+    <label class="edit-padding">List of hints</label>
+    <p class="edit-padding">[@Html.ActionLink("Create New", "AddHint", new { idQuestion = Model.IdQuestion })]</p>
+</div>
+
+<table>
+    <tr>
+        <th>Hint
+        </th>
+        <th>CRUD actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Hints)
+    {
+        <tr>
+            <td>
+                @Html.HiddenFor(modelItem => item.IdHint)
+                @Html.DisplayFor(modelItem => item.Hint1)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditHint", new { idHint = item.IdHint }) |
+            @Html.ActionLink("Delete", "DeleteHint", new { idHint = item.IdHint })
+            </td>
+        </tr>
+    }
+
+</table>

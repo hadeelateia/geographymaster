@@ -10,7 +10,7 @@ namespace geographymaster.Repositories
         private Models.GeographyMasterEntities _db = new Models.GeographyMasterEntities();
 
         # region -=CRUD=-
-        public Models.Hint GetHintByID(int id)
+        public Models.Hint GetHintByID(long id)
         {
             return _db.Hints.FirstOrDefault(b => b.IdHint == id);
         }
@@ -32,7 +32,7 @@ namespace geographymaster.Repositories
             return _db.SaveChanges();
         }
 
-        public void DeleteHint(int id)
+        public void DeleteHint(long id)
         {
             var hint = GetHintByID(id);
             _db.Hints.Remove(hint);

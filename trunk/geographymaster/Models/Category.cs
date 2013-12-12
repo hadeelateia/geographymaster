@@ -19,7 +19,6 @@ namespace geographymaster.Models
             this.Badges = new HashSet<Badge>();
             this.InfoBoxes = new HashSet<InfoBox>();
             this.Questions = new HashSet<Question>();
-            this.Subcategories = new HashSet<Subcategory>();
         }
     
         public long IdCategory { get; set; }
@@ -28,6 +27,5 @@ namespace geographymaster.Models
         public virtual ICollection<Badge> Badges { get; set; }
         public virtual ICollection<InfoBox> InfoBoxes { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<Subcategory> Subcategories { get; set; }
     }
 }
