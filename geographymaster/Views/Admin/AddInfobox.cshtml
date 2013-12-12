@@ -1,0 +1,38 @@
+﻿@model geographymaster.Models.InfoboxViewModel
+
+@{
+    ViewBag.Title = "AddInfobox";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="question-rectangle">
+        <fieldset class="question">
+            <label class="question-label">Infobox</label>
+
+            <div class="editor-label-question">
+                Category:
+            </div>
+            <div class="editor-field-question">
+                @Html.DropDownListFor(model => model.IdCategory, new SelectList(Model.Categories, "IdCategory", "Continent"))
+                @Html.ValidationMessageFor(model => model.Categories)
+            </div>
+
+        <div class="editor-label-question">
+            @Html.LabelFor(model => model.InfoBoxDescription)
+        </div>
+        <div class="editor-field-question">
+            @Html.EditorFor(model => model.InfoBoxDescription)
+            @Html.ValidationMessageFor(model => model.InfoBoxDescription)
+        </div>
+
+            <p class="submit-padding">
+                <input type="submit" value="Create" class="question-submit" />
+            </p>
+        </fieldset>
+    </div>
+}

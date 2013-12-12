@@ -1,0 +1,43 @@
+﻿@model geographymaster.Models.InfoboxViewModel
+
+@{
+    ViewBag.Title = "EditInfobox";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="login-rectangle">
+        <fieldset class="login">
+
+            <div class="editor-label-login">
+                Category:
+            </div>
+            <div class="editor-field-edit">
+                @Html.DropDownListFor(model => model.IdCategory, new SelectList(Model.Categories, "IdCategory", "Continent"))
+                @Html.ValidationMessageFor(model => model.Categories)
+            </div>
+
+
+            <div class="editor-label-login">
+                Infobox:
+            </div>
+            <div class="editor-field-edit">
+                @Html.HiddenFor(model => model.IdInfoBox)
+                @Html.EditorFor(model => model.InfoBoxDescription)
+                @Html.ValidationMessageFor(model => model.InfoBoxDescription)
+            </div>
+
+            <p class="submit-padding">
+                <input type="submit" value="Save" class="login-submit" />
+            </p>
+        </fieldset>
+    </div>
+}
+
+<p class="login-links">
+    [@Html.ActionLink("Back to List", "ListInfoboxes", "Admin")]
+</p>

@@ -1,0 +1,35 @@
+﻿@model geographymaster.Models.HintViewModel
+
+@{
+    ViewBag.Title = "EditHint";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="login-rectangle">
+        <fieldset class="login">
+
+            <div class="editor-label-login">
+                @Html.LabelFor(model => model.HintDescription)
+            </div>
+            <div class="editor-field-edit">
+                @Html.HiddenFor(model => model.IdQuestion)
+                @Html.EditorFor(model => model.HintDescription)
+                @Html.ValidationMessageFor(model => model.HintDescription)
+            </div>
+
+
+            <p class="submit-padding">
+                <input type="submit" value="Save" class="login-submit" />
+            </p>
+        </fieldset>
+    </div>
+}
+
+<p class="login-links">
+    [@Html.ActionLink("Back to List", "ListHints", new { idQuestion = Model.IdQuestion })]
+</p>

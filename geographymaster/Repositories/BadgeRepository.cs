@@ -23,7 +23,7 @@ namespace geographymaster.Repositories
         {
             _db.Badges.Add(badge);
             _db.SaveChanges();
-            
+
         }
 
         public int SaveChanges()

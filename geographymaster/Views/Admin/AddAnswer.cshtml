@@ -1,0 +1,46 @@
+﻿@model geographymaster.Models.AnswerViewModel
+
+@{
+    ViewBag.Title = "AddAnswer";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="question-rectangle">
+        <fieldset class="question">
+            <label class="question-label">Answer</label>
+
+            <div class="editor-label-question">
+                Answer:
+            </div>
+            <div class="editor-field-question">
+                @Html.EditorFor(model => model.AnswerDescription)
+                @Html.ValidationMessageFor(model => model.AnswerDescription)
+            </div>
+
+            <div class="editor-label-question">
+                Question:
+            </div>
+            <div class="editor-field-question">
+                @Html.HiddenFor(model => model.IdQuestion)
+                @Html.TextAreaFor(model => model.QuestionDescription)
+            </div>
+
+            <div class="editor-label-question">
+                Is true?
+            </div>
+            <div class="editor-field-question">
+                @Html.EditorFor(model => model.IsTrue)
+                @Html.ValidationMessageFor(model => model.IsTrue)
+            </div>
+
+            <p class="submit-padding">
+                <input type="submit" value="Create" class="question-submit" />
+            </p>
+        </fieldset>
+    </div>
+}

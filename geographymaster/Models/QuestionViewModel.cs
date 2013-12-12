@@ -9,9 +9,13 @@ namespace geographymaster.Models
     public class QuestionViewModel
     {
         public Question QuestionDetails { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
-        
+
+        public IEnumerable<Category> Categories { get; set; }        
         public long CategoryId { get; set; }
+
+        public IEnumerable<Subcategory> Subcategories { get; set; }
+        public long SubcatetegoryId { get; set; }
+        
         public long QuestionId { get; set; }
     }
 }

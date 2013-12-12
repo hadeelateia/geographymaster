@@ -3733,3 +3733,7 @@ p.login-links {
     margin-top: 45%;
     margin-left: 45%;
 }
+
+.fixed-width-answer {
+    width: 150px;
+}

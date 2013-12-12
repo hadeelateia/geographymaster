@@ -12,16 +12,13 @@ namespace geographymaster.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Subcategory
+    public partial class Answer
     {
-        public Subcategory()
-        {
-            this.Questions = new HashSet<Question>();
-        }
+        public long IdAnswer { get; set; }
+        public string AnswerDescription { get; set; }
+        public long IdQuestion { get; set; }
+        public bool IsTrue { get; set; }
     
-        public long IdSubcategory { get; set; }
-        public string Subcategory1 { get; set; }
-    
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual Question Question { get; set; }
     }
 }

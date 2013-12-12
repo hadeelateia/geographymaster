@@ -16,15 +16,19 @@ namespace geographymaster.Models
     {
         public Question()
         {
+            this.Answers = new HashSet<Answer>();
             this.Hints = new HashSet<Hint>();
         }
     
         public long IdQuestion { get; set; }
         public long IdCategory { get; set; }
+        public long IdSubcategory { get; set; }
         public string Question1 { get; set; }
         public int NoStars { get; set; }
     
+        public virtual ICollection<Answer> Answers { get; set; }
         public virtual Category Category { get; set; }
         public virtual ICollection<Hint> Hints { get; set; }
+        public virtual Subcategory Subcategory { get; set; }
     }
 }

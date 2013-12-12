@@ -5,24 +5,24 @@ using System.Web;
 
 namespace geographymaster.Repositories
 {
-    public class SubcategoryRepository
+    public class AnswerRepository
     {
         private Models.GeographyMasterEntities _db = new Models.GeographyMasterEntities();
 
         # region -=CRUD=-
-        public Models.Subcategory GetSubCategoryByID(int id)
+        public Models.Answer GetAnswerByID(long id)
         {
-            return _db.Subcategories.FirstOrDefault(b => b.IdSubcategory == id);
+            return _db.Answers.FirstOrDefault(b => b.IdAnswer == id);
         }
 
-        public IEnumerable<Models.Subcategory> GetAllSubCategories()
+        public IEnumerable<Models.Answer> GetAllAnswers()
         {
-            return _db.Subcategories.ToList();
+            return _db.Answers.ToList();
         }
 
-        public void CreateNewSubCategory(Models.Subcategory subcategory)
+        public void CreateNewAnswer(Models.Answer answer)
         {
-            _db.Subcategories.Add(subcategory);
+            _db.Answers.Add(answer);
             _db.SaveChanges();
 
         }
@@ -32,10 +32,10 @@ namespace geographymaster.Repositories
             return _db.SaveChanges();
         }
 
-        public void DeleteSubCategory(int id)
+        public void DeleteAnswer(long id)
         {
-            var subcategory = GetSubCategoryByID(id);
-            _db.Subcategories.Remove(subcategory);
+            var answer = GetAnswerByID(id);
+            _db.Answers.Remove(answer);
             _db.SaveChanges();
         }
 

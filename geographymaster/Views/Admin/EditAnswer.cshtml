@@ -1,0 +1,43 @@
+﻿@model geographymaster.Models.AnswerViewModel
+
+@{
+    ViewBag.Title = "EditAnswer";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="login-rectangle">
+        <fieldset class="login">
+
+            <div class="editor-label-login">
+                Answer:
+            </div>
+            <div class="editor-field-edit">
+                @Html.HiddenFor(model => model.IdQuestion)
+                @Html.EditorFor(model => model.AnswerDescription)
+                @Html.ValidationMessageFor(model => model.AnswerDescription)
+            </div>
+
+            <div class="editor-label-login">
+                Is true?
+            </div>
+            <div class="editor-field-edit">
+                @Html.EditorFor(model => model.IsTrue)
+                @Html.ValidationMessageFor(model => model.IsTrue)
+            </div>
+
+            <p class="submit-padding">
+                <input type="submit" value="Save" class="login-submit" />
+            </p>
+        </fieldset>
+    </div>
+}
+
+<p class="login-links">
+    [@Html.ActionLink("Back to List", "ListAnswers", new { idQuestion = Model.IdQuestion })]
+</p>
+

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<geographymaster.Models.InfoBox>
+
+@{
+    ViewBag.Title = "ListInfoboxes";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<div class="edit-padding">
+    <label class="edit-padding">List of infoboxes</label>
+    <p class="edit-padding">[@Html.ActionLink("Create New", "AddInfobox", "Admin")]</p>
+</div>
+
+<table>
+    <tr>
+        <th>Category
+        </th>
+        <th>Infobox
+        </th>
+        <th>CRUD actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.Continent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfoBox1)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "EditInfobox", new { idInfobox = item.IdInfoBox }) |
+            @Html.ActionLink("Delete", "DeleteInfobox", new { idInfobox = item.IdInfoBox })
+            </td>
+        </tr>
+    }
+
+</table>
