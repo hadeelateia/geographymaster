@@ -2,13 +2,14 @@
     Layout = "~/Views/_BasicLayout.cshtml";
     ViewBag.Title = "Geography Master";
 }
+
 <section class="met_content met_full_portfolio columns_3">
     <div class="met_fp_item mix illustration">
         <div class="met_fp_item_preview">
             <img src="~/Content/photos/index/europe.gif" alt="" />
             <div class="met_fpip_overlay met_vcenter">
                 <div class="met_fpipo_box">
-                    @Html.ActionLink("Play", "Category", new { category = "europe" })
+                    @Html.ActionLink("Play", "Category", new { idCategory = 1 })
                     @*TODO: send categoryId from Model in the ActionLink *@
                     <a href="~/Content/photos/indexBig/europe.gif" rel="lb_02" class="met_color_transition">View</a>
                 </div>
@@ -27,7 +28,7 @@
             <img src="~/Content/photos/index/asia.gif" alt="" />
             <div class="met_fpip_overlay met_vcenter">
                 <div class="met_fpipo_box">
-                    @Html.ActionLink("Play", "Category", new { category = "asia" })
+                    @Html.ActionLink("Play", "Category", new { idCategory = 2 })
                     <a href="~/Content/photos/indexBig/asia.gif" rel="lb_02" class="met_color_transition">View</a>
                 </div>
             </div>
@@ -45,7 +46,7 @@
             <img src="~/Content/photos/index/australia_oceania.gif" alt="" />
             <div class="met_fpip_overlay met_vcenter">
                 <div class="met_fpipo_box">
-                    @Html.ActionLink("Play", "Category", new { category = "australia_oceania" })
+                    @Html.ActionLink("Play", "Category", new { idCategory = 3 })
                     <a href="~/Content/photos/indexBig/australia_oceania.gif" rel="lb_02" class="met_color_transition">View</a>
                 </div>
             </div>
@@ -63,7 +64,7 @@
             <img src="~/Content/photos/index/south_america.gif" alt="" />
             <div class="met_fpip_overlay met_vcenter">
                 <div class="met_fpipo_box">
-                    @Html.ActionLink("Play", "Category", new { category = "south_america" })
+                    @Html.ActionLink("Play", "Category", new { idCategory = 4 })
                     <a href="~/Content/photos/indexBig/south_america.gif" rel="lb_02" class="met_color_transition">View</a>
                 </div>
             </div>
@@ -81,7 +82,7 @@
             <img src="~/Content/photos/index/north_america.gif" alt="" />
             <div class="met_fpip_overlay met_vcenter">
                 <div class="met_fpipo_box">
-                    @Html.ActionLink("Play", "Category", new { category = "north_america" })
+                    @Html.ActionLink("Play", "Category", new { idCategory = 5 })
                     <a href="~/Content/photos/indexBig/north_america.gif" rel="lb_02" class="met_color_transition">View</a>
                 </div>
             </div>
@@ -99,7 +100,7 @@
             <img src="~/Content/photos/index/africa.gif" alt="" />
             <div class="met_fpip_overlay met_vcenter">
                 <div class="met_fpipo_box">
-                    @Html.ActionLink("Play", "Category", new { category = "africa" })
+                    @Html.ActionLink("Play", "Category", new { idCategory = 6 })
                     <a href="~/Content/photos/indexBig/africa.gif" rel="lb_02" class="met_color_transition">View</a>
                 </div>
             </div>

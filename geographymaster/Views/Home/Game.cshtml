@@ -1,0 +1,34 @@
+﻿@model geographymaster.Models.Question
+
+@{
+    ViewBag.Title = "Game";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<div class="continent">
+    <div class="game-question">
+        @Model.Question1
+        <div class="game-question-options">
+            [@Html.ActionLink("Back to categories", "Category", new { idCategory = Model.IdCategory })]
+            [@Html.ActionLink("Next question", "AddAnswer", new { idQuestion = Model.IdQuestion })]
+        </div>
+    </div>
+
+
+    <div class="game-answers">
+        @Html.HiddenFor(model => model.IdQuestion, new { @class = "idQuestion" })
+
+        @foreach (var item in @Model.Answers)
+        {
+            <div class="ball" id="@item.IdAnswer">
+                @Html.TextBoxFor(model => item.AnswerDescription, new { @readonly = "readonly", @class = "ball-text", @id = item.IdAnswer })
+            </div>
+        }
+    </div>
+    <audio id="audioElementCorrect" src="~/Content/music/correct_answer.mp3"></audio>
+    <audio id="audioElementIncorrect" src="~/Content/music/incorrect_answer.mp3"></audio>
+</div>
+
+
+
+

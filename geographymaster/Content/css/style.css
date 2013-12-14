@@ -3620,6 +3620,7 @@ fieldset.login, fieldset.question {
     margin-top: 15%;
     margin-left: 25%;
 }
+
 fieldset.question-details {
     position: absolute;
     top: 0;
@@ -3638,6 +3639,7 @@ div.login-rectangle, div.question-rectangle {
     margin-top: 15%;
     margin-left: 35%;
 }
+
 div.question-details-rectangle {
     width: 380px;
     height: 300px;
@@ -3648,11 +3650,13 @@ div.question-details-rectangle {
     margin-top: 15%;
     margin-left: 35%;
 }
+
 .login-label, .question-label {
     color: white;
     font: 600;
     font-size: large;
 }
+
 .question-details-label {
     color: white;
     font: 600;
@@ -3670,12 +3674,14 @@ div.editor-field-login, div.editor-field-question {
     font: 600;
     font-size: small;
 }
+
 div.editor-field-edit {
     color: #1D526C;
     font: 600;
     font-size: small;
     width: 200px;
 }
+
 .login-submit, .question-submit {
     width: 155px;
 }
@@ -3695,6 +3701,7 @@ div.edit-padding {
     left: 0;
     margin-left: 35%;
 }
+
 label.edit-padding {
     font: 600;
     font-size: large;
@@ -3718,6 +3725,7 @@ div.display-label-login {
     font-size: medium;
     color: white;
 }
+
 p.question-details-links {
     position: absolute;
     top: 0;
@@ -3727,7 +3735,7 @@ p.question-details-links {
 }
 
 p.login-links {
-       position: absolute;
+    position: absolute;
     top: 0;
     left: 0;
     margin-top: 45%;
@@ -3736,4 +3744,64 @@ p.login-links {
 
 .fixed-width-answer {
     width: 150px;
+}
+
+/* Catgegory */
+
+.continent {
+    width: inherit;
+    height: 626px;
+    z-index: -10000;
+    background: url('/Content/photos/category/background.png') repeat;
+}
+/* Game */
+.game-question {
+    position: absolute;
+    left: 15%;
+    top: 15%;
+    margin-top: -15px;
+    margin-left: -15px;
+    text-align: center;
+    width: 700px;
+    color: black;
+    font-weight: bold;
+    font-size: xx-large;
+    font-family: "Comic Sans MS";
+}
+
+.game-question-options {
+    color: black;
+    font-weight: bold;
+    font-size: medium;
+    font-family: "Comic Sans MS";
+}
+
+.game-answers {
+    margin-top: 20%;
+    left: -1000px;
+    position: fixed;
+}
+
+.ball {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    float: left;
+    background-image: url("/Content/photos/image.png");
+}
+
+.ball-text {
+    position: absolute;
+    left: 55%;
+    top: 65%;
+    margin-top: -65px;
+    margin-left: -55px;
+    width: 100px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-weight: bold;
+    font-size: medium;
+    font-family: "Comic Sans MS";
+    text-align: center;
 }
