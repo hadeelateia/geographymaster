@@ -10,7 +10,7 @@
         @Model.Question1
         <div class="game-question-options">
             [@Html.ActionLink("Back to categories", "Category", new { idCategory = Model.IdCategory })]
-            [@Html.ActionLink("Next question", "AddAnswer", new { idQuestion = Model.IdQuestion })]
+            [@Html.ActionLink("Next question", "Game", new { idCategory = Model.IdCategory, idSubcategory = Model.IdSubcategory })]
         </div>
     </div>
 
