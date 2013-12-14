@@ -195,6 +195,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\correct.png" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\jquery.mCustomScrollbar.css" />
     <Content Include="Content\css\magnific-popup.css" />
@@ -204,8 +205,13 @@
     <Content Include="Content\css\responsive.css" />
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\superfish.css" />
+    <Content Include="Content\music\correct_answer.mp3" />
+    <Content Include="Content\music\incorrect_answer.mp3" />
     <Content Include="Content\music\TheContinentSong.mp3" />
-    <Content Include="Content\photos\category\background_europe.png" />
+    <Content Include="Content\photos\category\background.png" />
+    <Content Include="Content\photos\correct.png" />
+    <Content Include="Content\photos\image.png" />
+    <Content Include="Content\photos\incorrect.png" />
     <Content Include="Content\photos\logo.jpg" />
     <Content Include="Content\photos\subcategory\capital_cities.png" />
     <Content Include="Content\photos\index\africa.gif" />
@@ -243,6 +249,8 @@
     <Content Include="Content\scripts\masonry.js" />
     <Content Include="Content\scripts\metcreative.html5audio.js" />
     <Content Include="Content\scripts\modernizr.js" />
+    <Content Include="Content\scripts\moveAnswerBall.js" />
+    <Content Include="Content\scripts\question.js" />
     <Content Include="Content\scripts\responsiveCarousel.min.js" />
     <Content Include="Content\scripts\retina.js" />
     <Content Include="Content\scripts\scripts.js" />
@@ -339,6 +347,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\EditInfobox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Game.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -9,6 +9,8 @@ namespace geographymaster.Repositories
     {
         private Models.GeographyMasterEntities _db = new Models.GeographyMasterEntities();
 
+        private Random random = new Random();
+
         # region -=CRUD=-
         public Models.Question GetQuestionByID(long id)
         {
@@ -18,6 +20,18 @@ namespace geographymaster.Repositories
         public IEnumerable<Models.Question> GetAllQuestions()
         {
             return _db.Questions.ToList();
+        }
+
+        public Models.Question GetAllQuestions(long idCategory, long idSubcategory)
+        {
+            List<long> ids = new List<long>();
+            var questions = _db.Questions.Where(x => x.IdCategory == idCategory && x.IdSubcategory == idSubcategory);
+            foreach (var question in questions)
+                ids.Add(question.IdQuestion);
+
+            var randomNumber = random.Next(0, ids.Count() - 1);
+
+            return questions.ToList().ElementAt(randomNumber);
         }
 
         public void CreateNewQuestion(Models.Question question)
