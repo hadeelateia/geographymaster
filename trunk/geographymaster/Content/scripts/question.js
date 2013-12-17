@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+    $("#talking-parrot").delay(5000);
 
     $(".ball").hover(function () {
         $(this).css("cursor", "pointer")
@@ -29,6 +30,8 @@
 
                     document.getElementById("audioElementIncorrect").play();
                 }
+
+                $(".score").text(data.score);
             }
         });
     });
