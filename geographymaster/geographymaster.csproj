@@ -129,6 +129,7 @@
     <Compile Include="Models\Category.cs">
       <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GameViewModel.cs" />
     <Compile Include="Models\GeographyMasterEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -210,6 +211,9 @@
     <Content Include="Content\music\TheContinentSong.mp3" />
     <Content Include="Content\photos\category\background.png" />
     <Content Include="Content\photos\correct.png" />
+    <Content Include="Content\photos\help_ballon.png" />
+    <Content Include="Content\photos\parrot.gif" />
+    <Content Include="Content\photos\template\icon-long-arrow-right.png" />
     <Content Include="Content\photos\image.png" />
     <Content Include="Content\photos\incorrect.png" />
     <Content Include="Content\photos\logo.jpg" />

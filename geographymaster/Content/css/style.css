@@ -336,6 +336,13 @@ header nav {
     text-align: center;
 }
 
+.talking-parrot {
+    display: block;
+    text-align: center;
+    width:auto;
+    align-content:center;
+}
+
 .met_left_bar nav {
 }
 
@@ -1267,7 +1274,7 @@ header nav {
     line-height: 40px;
     font-size: 11px;
     padding-right: 27px;
-    background: url('../img/icon-long-arrow-right.png') no-repeat right center;
+    background: url('~/Content/photos/template/icon-long-arrow-right.png') no-repeat right center;
 }
 
 .met_fp_item_shadow {
@@ -2189,7 +2196,7 @@ header nav {
     line-height: 40px;
     font-size: 11px;
     padding-right: 27px;
-    background: url('../img/icon-long-arrow-right.png') no-repeat right center;
+    background: url('~/Content/photos/template/icon-long-arrow-right.png') no-repeat right center;
 }
 
 .met_bl_carousel_container {
@@ -3769,10 +3776,16 @@ p.login-links {
     font-family: "Comic Sans MS";
 }
 
-.game-question-options {
+.game-question-options, .score {
     color: black;
     font-weight: bold;
     font-size: medium;
+    font-family: "Comic Sans MS";
+}
+
+.score-text {
+    color: black;
+    font-size: small;
     font-family: "Comic Sans MS";
 }
 
@@ -3792,11 +3805,12 @@ p.login-links {
 
 .ball-text {
     position: absolute;
-    left: 55%;
-    top: 65%;
-    margin-top: -65px;
-    margin-left: -55px;
-    width: 100px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 45%;
+    width: auto;
     background-color: transparent;
     border: none;
     color: black;
@@ -3804,4 +3818,9 @@ p.login-links {
     font-size: medium;
     font-family: "Comic Sans MS";
     text-align: center;
+}
+
+.score-board {
+    padding-top: 10px;
+    padding-left: 10px;
 }

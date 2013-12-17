@@ -47,15 +47,36 @@ namespace geographymaster.Controllers
         {
             Question question = questionRepository.GetAllQuestions(idCategory, idSubcategory);
 
-            return View(question);
+            return View(new GameViewModel() { QuestionDetails = question, Score = GetScore() });
         }
 
         [HttpGet]
         public ActionResult CheckAnswer(long idAnswer, long idQuestion)
         {
+            bool localSuccess = false;
+
             if (answerRepository.GetAllAnswers().Where(x => x.IdAnswer == idAnswer).SingleOrDefault().IsTrue)
-                return Json(new { success = true }, JsonRequestBehavior.AllowGet);
-            else return Json(new { success = false }, JsonRequestBehavior.AllowGet); ;
+            {
+                int numberOfStars = questionRepository.GetQuestionByID(idQuestion).NoStars;
+                Session["Score"] = GetScore() + numberOfStars;
+
+                localSuccess = true;
+
+            }
+
+            return Json(new { success = localSuccess, score = GetScore() }, JsonRequestBehavior.AllowGet);
+        }
+
+        private int GetScore()
+        {
+            int? score = (int?)Session["Score"];
+
+            if (score == null)
+            {
+                Session["Score"] = 0;
+            }
+
+            return (int)Session["Score"];
         }
     }
 }

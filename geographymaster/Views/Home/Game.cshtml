@@ -1,4 +1,4 @@
-﻿@model geographymaster.Models.Question
+﻿@model geographymaster.Models.GameViewModel
 
 @{
     ViewBag.Title = "Game";
@@ -6,19 +6,27 @@
 }
 
 <div class="continent">
+    <div class="score-board">
+        <span class="score-text">Score:</span>
+        <label class="score">@Model.Score</label>
+    </div>
+
     <div class="game-question">
-        @Model.Question1
+        @Model.QuestionDetails.Question1
         <div class="game-question-options">
-            [@Html.ActionLink("Back to categories", "Category", new { idCategory = Model.IdCategory })]
-            [@Html.ActionLink("Next question", "Game", new { idCategory = Model.IdCategory, idSubcategory = Model.IdSubcategory })]
+            [@Html.ActionLink("Back to categories", "Category", new { idCategory = Model.QuestionDetails.IdCategory })]
+            [@Html.ActionLink("Next question", "Game", new
+        {
+            idCategory = Model.QuestionDetails.IdCategory,
+            idSubcategory = Model.QuestionDetails.IdSubcategory
+        })]
         </div>
     </div>
 
-
     <div class="game-answers">
-        @Html.HiddenFor(model => model.IdQuestion, new { @class = "idQuestion" })
+        @Html.HiddenFor(model => model.QuestionDetails.IdQuestion, new { @class = "idQuestion" })
 
-        @foreach (var item in @Model.Answers)
+        @foreach (var item in @Model.QuestionDetails.Answers)
         {
             <div class="ball" id="@item.IdAnswer">
                 @Html.TextBoxFor(model => item.AnswerDescription, new { @readonly = "readonly", @class = "ball-text", @id = item.IdAnswer })
@@ -29,6 +37,8 @@
     <audio id="audioElementIncorrect" src="~/Content/music/incorrect_answer.mp3"></audio>
 </div>
 
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="~/Content/scripts/moveAnswerBall.js"></script>
+<script src="~/Content/scripts/question.js"></script>
 
 
