@@ -67,6 +67,18 @@ namespace geographymaster.Controllers
             return Json(new { success = localSuccess, score = GetScore() }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public ActionResult GetHints(long idQuestion)
+        {
+            List<string> localHints = new List<string>();
+            foreach (Hint hint in questionRepository.GetQuestionByID(idQuestion).Hints)
+            {
+                localHints.Add(hint.Hint1);
+            }
+
+            return Json(new { success = localHints }, JsonRequestBehavior.AllowGet);
+        }
+
         private int GetScore()
         {
             int? score = (int?)Session["Score"];
