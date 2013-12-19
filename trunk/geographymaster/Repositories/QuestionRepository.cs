@@ -26,12 +26,14 @@ namespace geographymaster.Repositories
         {
             List<long> ids = new List<long>();
             var questions = _db.Questions.Where(x => x.IdCategory == idCategory && x.IdSubcategory == idSubcategory);
+            
             foreach (var question in questions)
                 ids.Add(question.IdQuestion);
-
-            var randomNumber = random.Next(0, ids.Count() - 1);
-
-            return questions.ToList().ElementAt(randomNumber);
+            
+            if (ids.Count > 0)
+                return questions.ToList().ElementAt(random.Next(0, ids.Count() - 1));
+            else
+                return null;
         }
 
         public void CreateNewQuestion(Models.Question question)
