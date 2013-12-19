@@ -46,8 +46,11 @@ namespace geographymaster.Controllers
         public ActionResult Game(long idCategory, long idSubcategory)
         {
             Question question = questionRepository.GetAllQuestions(idCategory, idSubcategory);
+            if (question != null)
+                return View(new GameViewModel() { QuestionDetails = question, Score = GetScore() });
+            else
+                return View(new GameViewModel() { QuestionDetails = new Question(), Score = GetScore() });
 
-            return View(new GameViewModel() { QuestionDetails = question, Score = GetScore() });
         }
 
         [HttpGet]
