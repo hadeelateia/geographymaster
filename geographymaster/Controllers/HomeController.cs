@@ -16,6 +16,8 @@ namespace geographymaster.Controllers
         CategoryRepository categoryRepository = new CategoryRepository();
         SubcategoryRepository subcategoryRepository = new SubcategoryRepository();
         AnswerRepository answerRepository = new AnswerRepository();
+        InfoBoxRepository infoBoxRepository = new InfoBoxRepository();
+        Random randNum = new Random();
 
         public IEnumerable<Category> activeCategories;
         public IEnumerable<Subcategory> activeSubcategories;
@@ -80,6 +82,13 @@ namespace geographymaster.Controllers
             }
 
             return Json(new { success = localHints }, JsonRequestBehavior.AllowGet);
+        }
+        [HttpGet]
+        public ActionResult GetInfoBox(long idQuestion)
+        {
+            List<string> info = new List<string>();
+            List<InfoBox> ls = infoBoxRepository.GetAllInfoBoxesByCategoryID(questionRepository.GetQuestionByID(idQuestion).IdCategory).ToList();
+            return Json(new { success = ls[randNum.Next(ls.Count)].InfoBox1 }, JsonRequestBehavior.AllowGet);
         }
 
         private int GetScore()

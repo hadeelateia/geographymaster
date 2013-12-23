@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     $(".hint-preview").hide();
+    $(".info-box-preview").hide();
     /*help balloon*/
     var isHelpBalloonClicked = false;
     $(".help-balloon").hide();
@@ -15,6 +16,7 @@
             url: "GetHints",
             data: { idQuestion: GetQuestionId() },
             success: function (data) {
+                    $(".info-box-preview").hide();
                 for (var i = 0; i < data.success.length; i++) {
                     $(".continent").css("z-index", -1);
                     $(".hint-preview-items").append("<p>" + data.success[i] + "</p>");
@@ -32,6 +34,34 @@
         $(this).css("cursor", "pointer")
     });
     $(".hint-preview").click(function () {
+        $(this).hide();
+    });
+    /*infobox*/
+    var isInfoBoxClicked = false;
+    $(".info-box").hover(function () {
+        $(this).css("cursor", "pointer")
+    });
+    
+    $(".info-box").click(function () {
+
+        $.ajax({
+            url: "GetInfoBox",
+            data: { idQuestion: GetQuestionId() },
+            success: function (data) {
+                 $(".hint-preview").hide();
+                 $(".continent").css("z-index", -1);
+                    $(".info-box-preview-items").append("<p>" + data.success + "</p>");
+                    $(".info-box-preview-items").css("z-index", 1);
+                    $(".info-box-preview").show();
+                    $(".info-box-preview").css("z-index", 1);
+
+                
+            }
+        });
+       
+    });
+
+    $(".info-box-preview").click(function () {
         $(this).hide();
     });
     /*ball*/

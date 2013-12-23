@@ -19,6 +19,10 @@ namespace geographymaster.Repositories
         {
             return _db.InfoBoxes.ToList();
         }
+        public IEnumerable<Models.InfoBox> GetAllInfoBoxesByCategoryID(long idcategory)
+        {
+            return _db.InfoBoxes.Where(i => i.IdCategory == idcategory).ToList();
+        }
 
         public void CreateNewInfoBox(Models.InfoBox ib)
         {
