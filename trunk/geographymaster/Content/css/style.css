@@ -3846,3 +3846,22 @@ p.login-links {
     font-family: "Comic Sans MS";
     text-align: center;
 }
+.info-box-preview {
+    top: 0;
+    right: 0;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    background-color: black;
+    opacity: 0.6;
+}
+
+.info-box-preview-items {
+    width: 300px;
+    height: auto;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    font-family: "Comic Sans MS";
+    text-align: center;
+}
