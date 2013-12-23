@@ -49,9 +49,9 @@ namespace geographymaster.Controllers
         {
             Question question = questionRepository.GetAllQuestions(idCategory, idSubcategory);
             if (question != null)
-                return View(new GameViewModel() { QuestionDetails = question, Score = GetScore() });
+                return View(new GameViewModel() { QuestionDetails = question, Score = GetScore().TotalScore });
             else
-                return View(new GameViewModel() { QuestionDetails = new Question(), Score = GetScore() });
+                return View(new GameViewModel() { QuestionDetails = new Question(), Score = GetScore().TotalScore });
 
         }
 
@@ -63,13 +63,13 @@ namespace geographymaster.Controllers
             if (answerRepository.GetAllAnswers().Where(x => x.IdAnswer == idAnswer).SingleOrDefault().IsTrue)
             {
                 int numberOfStars = questionRepository.GetQuestionByID(idQuestion).NoStars;
-                Session["Score"] = GetScore() + numberOfStars;
+                ((ScoreSession)Session["ScoreSession"]).TotalScore = GetScore().TotalScore + numberOfStars;
 
                 localSuccess = true;
 
             }
 
-            return Json(new { success = localSuccess, score = GetScore() }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = localSuccess, score = GetScore().TotalScore }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -91,16 +91,16 @@ namespace geographymaster.Controllers
             return Json(new { success = ls[randNum.Next(ls.Count)].InfoBox1 }, JsonRequestBehavior.AllowGet);
         }
 
-        private int GetScore()
+        private ScoreSession GetScore()
         {
-            int? score = (int?)Session["Score"];
+            ScoreSession score = (ScoreSession)Session["ScoreSession"];
 
             if (score == null)
             {
-                Session["Score"] = 0;
+                Session["ScoreSession"] = new ScoreSession();
             }
 
-            return (int)Session["Score"];
+            return (ScoreSession)Session["ScoreSession"];
         }
     }
 }

@@ -163,6 +163,7 @@
     <Compile Include="Models\Score.cs">
       <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ScoreSession.cs" />
     <Compile Include="Models\Subcategory.cs">
       <DependentUpon>GeographyMasterEntities.tt</DependentUpon>
     </Compile>
