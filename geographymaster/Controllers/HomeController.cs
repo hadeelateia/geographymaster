@@ -47,7 +47,7 @@ namespace geographymaster.Controllers
         {
             return View();
         }
-       
+
         [HttpGet]
         public ViewResult EnterScore()
         {
@@ -57,19 +57,19 @@ namespace geographymaster.Controllers
         [HttpPost]
         public ActionResult EnterScoreSubmit(Score score)
         {
-           
-                Score newScore = new Score()
-                {
-                    PlayerName=score.PlayerName,
-                    Score1=GetScore().TotalScore,
-                    IdBadge=1
-                };
 
-                scoreRepository.CreateNewScore(newScore);
-                scoreRepository.SaveChanges();
+            Score newScore = new Score()
+            {
+                PlayerName = score.PlayerName,
+                Score1 = GetScore().TotalScore,
+                IdBadge = 1
+            };
 
-                return RedirectToAction("ScorringTable", "Home");
-           
+            scoreRepository.CreateNewScore(newScore);
+            scoreRepository.SaveChanges();
+
+            return RedirectToAction("ScorringTable", "Home");
+
         }
         public ViewResult Category(long idCategory)
         {
@@ -96,20 +96,22 @@ namespace geographymaster.Controllers
             bool masterOfAll = false;
             if (answerRepository.GetAllAnswers().Where(x => x.IdAnswer == idAnswer).SingleOrDefault().IsTrue)
             {
-                
+
                 int numberOfStars = questionRepository.GetQuestionByID(idQuestion).NoStars;
                 long category = questionRepository.GetQuestionByID(idQuestion).IdCategory;
-                
+
                 Badge badge = badgeRepository.GetBadgeByCategoryID(category);
                 ((ScoreSession)Session["ScoreSession"]).TotalScore = GetScore().TotalScore + numberOfStars;
                 ((ScoreSession)Session["ScoreSession"]).ScoreByCategory[category] = GetScore().ScoreByCategory[category] + numberOfStars;
-                if (GetScore().ScoreByCategory[category] >= 100 && GetScore().BadgeByCategory[category] == 0) {
+                if (GetScore().ScoreByCategory[category] >= 100 && GetScore().BadgeByCategory[category] == 0)
+                {
                     newBadge = true;
                     GetScore().BadgeByCategory[category] = 1;
-                    congrats="Congratulations you just won the badge \n "+badge.Badge1;
+                    congrats = "Congratulations you just won the badge \n " + badge.Badge1;
                     for (int i = 1; i <= 6; i++)
                     {
-                        if (GetScore().BadgeByCategory[category] == 0) {
+                        if (GetScore().BadgeByCategory[category] == 0)
+                        {
                             masterOfAll = false;
                             break;
                         }
@@ -117,12 +119,12 @@ namespace geographymaster.Controllers
 
                     }
                 }
-                    
+
                 localSuccess = true;
 
             }
             masterOfAll = true;
-            return Json(new { success = localSuccess, score = GetScore().TotalScore, badge = newBadge,congratulations=congrats,master=masterOfAll }, JsonRequestBehavior.AllowGet);
+            return Json(new { success = localSuccess, score = GetScore().TotalScore, badge = newBadge, congratulations = congrats, master = masterOfAll }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -139,11 +141,13 @@ namespace geographymaster.Controllers
         [HttpGet]
         public ActionResult GetInfoBox(long idQuestion)
         {
-            string infoB="";
+            string infoB = "";
             List<string> info = new List<string>();
             List<InfoBox> ls = infoBoxRepository.GetAllInfoBoxesByCategoryID(questionRepository.GetQuestionByID(idQuestion).IdCategory).ToList();
-           if(ls!=null)
-                infoB=ls[randNum.Next(ls.Count)].InfoBox1;
+            
+            if (ls != null && ls.Count > 0)
+                infoB = ls[randNum.Next(ls.Count)].InfoBox1;
+            
             return Json(new { success = infoB }, JsonRequestBehavior.AllowGet);
         }
 
@@ -154,12 +158,13 @@ namespace geographymaster.Controllers
             if (score == null)
             {
                 Session["ScoreSession"] = new ScoreSession();
-               Dictionary<long, int> tmp = new Dictionary<long, int>();
-               Dictionary<long, int> badges = new Dictionary<long, int>();
-                for(int i=1;i<=6;i++){
+                Dictionary<long, int> tmp = new Dictionary<long, int>();
+                Dictionary<long, int> badges = new Dictionary<long, int>();
+                for (int i = 1; i <= 6; i++)
+                {
                     tmp.Add(i, 0);
                     badges.Add(i, 0);
-                    
+
                 }
                 ((ScoreSession)Session["ScoreSession"]).ScoreByCategory = tmp;
                 ((ScoreSession)Session["ScoreSession"]).BadgeByCategory = badges;
