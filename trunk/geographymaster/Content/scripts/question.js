@@ -18,7 +18,7 @@
             url: "GetHints",
             data: { idQuestion: GetQuestionId() },
             success: function (data) {
-                    $(".info-box-preview").hide();
+                $(".info-box-preview").hide();
                 for (var i = 0; i < data.success.length; i++) {
                     $(".continent").css("z-index", -1);
                     $(".hint-preview-items").append("<p>" + data.success[i] + "</p>");
@@ -43,24 +43,24 @@
     $(".info-box").hover(function () {
         $(this).css("cursor", "pointer")
     });
-    
+
     $(".info-box").click(function () {
 
         $.ajax({
             url: "GetInfoBox",
             data: { idQuestion: GetQuestionId() },
             success: function (data) {
-                 $(".hint-preview").hide();
-                 $(".continent").css("z-index", -1);
+                if (data.success != "") {
+                    $(".hint-preview").hide();
+                    $(".continent").css("z-index", -1);
                     $(".info-box-preview-items").append("<p>" + data.success + "</p>");
                     $(".info-box-preview-items").css("z-index", 1);
                     $(".info-box-preview").show();
                     $(".info-box-preview").css("z-index", 1);
-
-                
+                }
             }
         });
-       
+
     });
 
     $(".info-box-preview").click(function () {
@@ -94,15 +94,17 @@
 
                     document.getElementById("audioElementIncorrect").play();
                 }
+
                 if (data.master == true) {
                     $(".master-badge").show().animate({ left: '500px' });
-                    $(".master-badge-items").append("<p>" + "Hooray you have mastered all the categories"+ "</p>");
+                    $(".master-badge-items").append("<img src='/Content/photos/category/masterAllCategories.png'/>")
                 }
                 else if (data.badge == true) {
                     $(".new-badge").show().animate({ left: '500px' });
+                    $(".new-badge-items").append("<img src='/Content/photos/category/masterOfContinent.png'/>")
                     $(".new-badge-items").append("<p>" + data.congratulations + "</p>");
-
                 }
+
                 $(".score").text(data.score);
             }
         });
