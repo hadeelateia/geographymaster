@@ -6,19 +6,19 @@
 }
 
 
-    <div class="continent">
+<div class="continent">
     <div class="question-rectangle">
         <fieldset class="question">
             <label class="question-label">Enter your name :</label>
-@using (Ajax.BeginForm("EnterScoreSubmit", "Home", FormMethod.Post, null))
-{
-            <div class="editor-field-question">
-                @Html.EditorFor(model=>model.PlayerName)
-            </div>
-            <p class="submit-padding">
-                <input type="submit" value="Submit" class="question-submit" />
-            </p>
-}
+            @using (Ajax.BeginForm("EnterScoreSubmit", "Home", FormMethod.Post, null))
+            {
+                <div class="editor-field-question">
+                    @Html.EditorFor(model => model.PlayerName)
+                </div>
+                <p class="submit-padding">
+                    <input type="submit" value="Submit" class="question-submit" />
+                </p>
+            }
         </fieldset>
     </div>
 </div>

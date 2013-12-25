@@ -213,6 +213,9 @@
     <Content Include="Content\music\incorrect_answer.mp3" />
     <Content Include="Content\music\TheContinentSong.mp3" />
     <Content Include="Content\photos\category\background.png" />
+    <Content Include="Content\photos\category\greyBadgeBackground.jpg" />
+    <Content Include="Content\photos\category\masterAllCategories.png" />
+    <Content Include="Content\photos\category\masterOfContinent.png" />
     <Content Include="Content\photos\correct.png" />
     <Content Include="Content\photos\help_ballon.png" />
     <Content Include="Content\photos\parrot.gif" />

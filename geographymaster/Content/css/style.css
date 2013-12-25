@@ -3709,6 +3709,38 @@ div.edit-padding {
     margin-left: 35%;
 }
 
+div.score-table-div {
+    position: fixed;
+    left: 50%;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.score-table {
+    width: 300px;
+    position: fixed;
+    left: 50%;
+    margin-top: 100px;
+    margin-left: -50px;
+    background-color: #1D526C;
+    color: white;
+}
+
+    .score-table th {
+        text-align: center;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: medium;
+        font-family: "Comic Sans MS";
+    }
+
+    .score-table td {
+        text-align: center;
+        vertical-align: middle;
+        font-size: medium;
+        font-family: "Comic Sans MS";
+    }
+
 label.edit-padding {
     font: 600;
     font-size: large;
