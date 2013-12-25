@@ -9,11 +9,14 @@ namespace geographymaster.Repositories
         private Models.GeographyMasterEntities _db = new Models.GeographyMasterEntities();
 
         # region -=CRUD=-
-        public Models.Badge GetBadgeByID(int id)
+        public Models.Badge GetBadgeByID(long id)
         {
             return _db.Badges.FirstOrDefault(b => b.IdBadge == id);
         }
-
+        public Models.Badge GetBadgeByCategoryID(long id)
+        {
+            return _db.Badges.FirstOrDefault(b => b.IdCategory == id);
+        }
         public IEnumerable<Models.Badge> GetAllBadges()
         {
             return _db.Badges.ToList();

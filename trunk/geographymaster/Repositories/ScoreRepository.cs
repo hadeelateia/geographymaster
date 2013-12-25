@@ -19,6 +19,10 @@ namespace geographymaster.Repositories
         {
             return _db.Scores.ToList();
         }
+        public List<Models.Score> GetAllScores2()
+        {
+            return _db.Scores.OrderByDescending(s => s.Score1).Take(20).ToList();
+        }
 
         public void CreateNewScore(Models.Score score)
         {

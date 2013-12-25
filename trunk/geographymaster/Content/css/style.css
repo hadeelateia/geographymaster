@@ -3865,3 +3865,49 @@ p.login-links {
     font-family: "Comic Sans MS";
     text-align: center;
 }
+.new-badge {
+
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    margin-top: -250px;
+    margin-left: -250px;
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    z-index:1000;
+    
+}
+.new-badge-items{
+    text-shadow:4px 1px 6px rgba(48,25,255,1);
+    font-weight:normal;
+    font-style:italic;
+    color:#AD26A9;
+    font-size:34px;
+    text-align:center;
+    font-family:comic sans, comic sans ms, cursive, verdana, arial, sans-serif;
+
+}
+.master-badge {
+
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    margin-top: -250px;
+    margin-left: -250px;
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    z-index:1000;
+    
+}
+.master-badge-items{
+    text-shadow:4px 1px 6px rgba(48,25,255,1);
+    font-weight:normal;
+    font-style:italic;
+    color:#AD26A9;
+    font-size:34px;
+    text-align:center;
+    font-family:comic sans, comic sans ms, cursive, verdana, arial, sans-serif;
+
+}
