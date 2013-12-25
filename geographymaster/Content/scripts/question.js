@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
     $(".hint-preview").hide();
+    $(".new-badge").hide();
+    $(".master-badge").hide();
     $(".info-box-preview").hide();
     /*help balloon*/
     var isHelpBalloonClicked = false;
@@ -92,7 +94,15 @@
 
                     document.getElementById("audioElementIncorrect").play();
                 }
+                if (data.master == true) {
+                    $(".master-badge").show().animate({ left: '500px' });
+                    $(".master-badge-items").append("<p>" + "Hooray you have mastered all the categories"+ "</p>");
+                }
+                else if (data.badge == true) {
+                    $(".new-badge").show().animate({ left: '500px' });
+                    $(".new-badge-items").append("<p>" + data.congratulations + "</p>");
 
+                }
                 $(".score").text(data.score);
             }
         });

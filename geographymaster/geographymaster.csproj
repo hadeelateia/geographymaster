@@ -216,6 +216,7 @@
     <Content Include="Content\photos\correct.png" />
     <Content Include="Content\photos\help_ballon.png" />
     <Content Include="Content\photos\parrot.gif" />
+    <Content Include="Content\photos\rug.png" />
     <Content Include="Content\photos\template\icon-long-arrow-right.png" />
     <Content Include="Content\photos\image.png" />
     <Content Include="Content\photos\incorrect.png" />
@@ -357,6 +358,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Game.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\EnterScore.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ScorringTable.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

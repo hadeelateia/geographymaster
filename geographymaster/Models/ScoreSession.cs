@@ -8,6 +8,8 @@ namespace geographymaster.Models
     public class ScoreSession
     {
         public int TotalScore { get; set; }
-        public Dictionary<int, int> ScoreByCategory { get; set; }
+        //category-score
+        public Dictionary<long, int> ScoreByCategory { get; set; }
+        public Dictionary<long, int> BadgeByCategory { get; set; }
     }
 }

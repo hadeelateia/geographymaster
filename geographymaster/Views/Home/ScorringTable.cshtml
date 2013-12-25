@@ -1,0 +1,38 @@
+﻿@model List<geographymaster.Models.Score>
+
+    @{
+        ViewBag.Title = "EnterScore";
+        Layout = "~/Views/_BasicLayout.cshtml";
+    }
+    <div class="continent">
+        <div class="edit-padding">
+            <label class="edit-padding">Scorring Table</label>
+
+
+
+            <table>
+                <tr>
+                    <th>
+                        Player Name
+                    </th>
+                    <th>
+                        Total Score
+                    </th>
+
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(mi => item.PlayerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(mi => item.Score1)
+                        </td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
