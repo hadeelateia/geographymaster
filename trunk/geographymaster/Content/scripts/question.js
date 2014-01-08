@@ -66,10 +66,13 @@
     $(".info-box-preview").click(function () {
         $(this).hide();
     });
-    $(".new-badge").click(function () {
-        $(this).hide();
+    $(".master-badge-items").click(function () {
+        $(".master-badge").remove();
     });
-
+    $(".new-badge-items").click(function () {
+        $(".new-badge").remove();
+    });
+     
     /*ball*/
     $(".ball").hover(function () {
         $(this).css("cursor", "pointer")
