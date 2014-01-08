@@ -123,7 +123,14 @@ namespace geographymaster.Controllers
                 localSuccess = true;
 
             }
+            else
+            {
+                int numberOfStars = questionRepository.GetQuestionByID(idQuestion).NoStars;
+                ((ScoreSession)Session["ScoreSession"]).TotalScore = GetScore().TotalScore - numberOfStars;
+            }
+
             masterOfAll = true;
+
             return Json(new { success = localSuccess, score = GetScore().TotalScore, badge = newBadge, congratulations = congrats, master = masterOfAll }, JsonRequestBehavior.AllowGet);
         }
 
@@ -144,10 +151,10 @@ namespace geographymaster.Controllers
             string infoB = "";
             List<string> info = new List<string>();
             List<InfoBox> ls = infoBoxRepository.GetAllInfoBoxesByCategoryID(questionRepository.GetQuestionByID(idQuestion).IdCategory).ToList();
-            
+
             if (ls != null && ls.Count > 0)
                 infoB = ls[randNum.Next(ls.Count)].InfoBox1;
-            
+
             return Json(new { success = infoB }, JsonRequestBehavior.AllowGet);
         }
 
