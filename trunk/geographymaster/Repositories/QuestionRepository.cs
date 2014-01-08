@@ -21,6 +21,15 @@ namespace geographymaster.Repositories
         {
             return _db.Questions.ToList();
         }
+        public int BadgeCriteria(long idCategory)
+        {
+            var questions = _db.Questions.Where(x => x.IdCategory == idCategory );
+            int stars = 0;
+            foreach (var question in questions)
+                stars += question.NoStars;
+            stars = (stars / 100) * 60;
+            return stars;
+        }
 
         public Models.Question GetAllQuestions(long idCategory, long idSubcategory)
         {

@@ -100,10 +100,12 @@ namespace geographymaster.Controllers
                 int numberOfStars = questionRepository.GetQuestionByID(idQuestion).NoStars;
                 long category = questionRepository.GetQuestionByID(idQuestion).IdCategory;
 
+                
+
                 Badge badge = badgeRepository.GetBadgeByCategoryID(category);
                 ((ScoreSession)Session["ScoreSession"]).TotalScore = GetScore().TotalScore + numberOfStars;
                 ((ScoreSession)Session["ScoreSession"]).ScoreByCategory[category] = GetScore().ScoreByCategory[category] + numberOfStars;
-                if (GetScore().ScoreByCategory[category] >= 100 && GetScore().BadgeByCategory[category] == 0)
+                if (GetScore().ScoreByCategory[category] >= questionRepository.BadgeCriteria(category) && GetScore().BadgeByCategory[category] == 0)
                 {
                     newBadge = true;
                     GetScore().BadgeByCategory[category] = 1;
@@ -115,7 +117,10 @@ namespace geographymaster.Controllers
                             masterOfAll = false;
                             break;
                         }
-                        masterOfAll = true;
+                        else {
+                            masterOfAll = true;
+                        }
+                        
                         
 
                     }
