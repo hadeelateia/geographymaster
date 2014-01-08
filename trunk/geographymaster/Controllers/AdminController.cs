@@ -141,7 +141,9 @@ namespace geographymaster.Controllers
                 QuestionDetails = activeQuestion,
                 Categories = GetActiveCategories(),
                 Subcategories = GetActiveSubcategories(),
-                QuestionId = idQuestion
+                QuestionId = idQuestion,
+                SubcatetegoryId = activeQuestion.IdSubcategory,
+                CategoryId = activeQuestion.IdCategory
             });
         }
 

@@ -120,9 +120,6 @@ namespace geographymaster.Controllers
                         else {
                             masterOfAll = true;
                         }
-                        
-                        
-
                     }
                 }
 
