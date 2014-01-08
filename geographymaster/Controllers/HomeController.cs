@@ -110,17 +110,16 @@ namespace geographymaster.Controllers
                     newBadge = true;
                     GetScore().BadgeByCategory[category] = 1;
                     congrats = "Congratulations you just won the badge \n " + badge.Badge1;
+                    int tmp = 0;
                     for (int i = 1; i <= 6; i++)
                     {
-                        if (GetScore().BadgeByCategory[category] == 1)
+                        if (GetScore().BadgeByCategory[i] == 0)
                         {
-                            masterOfAll = false;
-                            break;
-                        }
-                        else {
-                            masterOfAll = true;
-                        }
+                            tmp = 1;
+                         }
+                        
                     }
+                    if (tmp == 0) masterOfAll = true;
                 }
 
                 localSuccess = true;

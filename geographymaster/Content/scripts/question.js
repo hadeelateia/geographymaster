@@ -68,6 +68,7 @@
     });
     $(".master-badge-items").click(function () {
         $(".master-badge").remove();
+        
     });
     $(".new-badge-items").click(function () {
         $(".new-badge").remove();
