@@ -66,6 +66,10 @@
     $(".info-box-preview").click(function () {
         $(this).hide();
     });
+    $(".new-badge").click(function () {
+        $(this).hide();
+    });
+
     /*ball*/
     $(".ball").hover(function () {
         $(this).css("cursor", "pointer")
@@ -102,14 +106,14 @@
                 else if (data.badge == true) {
                     $(".new-badge").show().animate({ left: '500px' });
                     $(".new-badge-items").append("<img src='/Content/photos/category/masterOfContinent.png'/>")
-                    $(".new-badge-items").append("<p>" + data.congratulations + "</p>");
+                    
                 }
 
                 $(".score").text(data.score);
             }
         });
     });
-
+   
     function GetQuestionId() {
         return $(".idQuestion").val();
     }
