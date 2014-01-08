@@ -110,12 +110,13 @@ namespace geographymaster.Controllers
                     congrats = "Congratulations you just won the badge \n " + badge.Badge1;
                     for (int i = 1; i <= 6; i++)
                     {
-                        if (GetScore().BadgeByCategory[category] == 0)
+                        if (GetScore().BadgeByCategory[category] == 1)
                         {
                             masterOfAll = false;
                             break;
                         }
                         masterOfAll = true;
+                        
 
                     }
                 }
@@ -129,7 +130,7 @@ namespace geographymaster.Controllers
                 ((ScoreSession)Session["ScoreSession"]).TotalScore = GetScore().TotalScore - numberOfStars;
             }
 
-            masterOfAll = true;
+            
 
             return Json(new { success = localSuccess, score = GetScore().TotalScore, badge = newBadge, congratulations = congrats, master = masterOfAll }, JsonRequestBehavior.AllowGet);
         }
