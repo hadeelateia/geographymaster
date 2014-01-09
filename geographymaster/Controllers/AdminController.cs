@@ -37,6 +37,26 @@ namespace geographymaster.Controllers
             return activeSubcategories = subcategoryRepository.GetAllSubCategories();
         }
 
+        #region User
+        [HttpGet]
+        [Authorize]
+        public ActionResult CreateUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult CreateUser(User user)
+        {
+            user.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(user.Password, "SHA1");
+            userRepository.CreateNewUser(user);
+            userRepository.SaveChanges();
+            return View("ListQuestions", "Admin");
+        }
+
+        #endregion
+
         #region Login
 
         [HttpGet]
@@ -52,7 +72,7 @@ namespace geographymaster.Controllers
             {
                 var activeUser = userRepository.GetUserByUsername(model.Username);
 
-                if (Membership.ValidateUser(model.Username, model.Password))
+                if (Membership.ValidateUser(model.Username, FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password, "SHA1")))
                 {
                     JavaScriptSerializer serializer = new JavaScriptSerializer();
 

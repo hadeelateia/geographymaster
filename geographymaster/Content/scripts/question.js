@@ -13,7 +13,6 @@
         $(".help-balloon").toggle("slow");
     }, 6000);
     $(".help-balloon").click(function () {
-
         $.ajax({
             url: "GetHints",
             data: { idQuestion: GetQuestionId() },
@@ -25,7 +24,6 @@
                     $(".hint-preview-items").css("z-index", 1);
                     $(".hint-preview").show();
                     $(".hint-preview").css("z-index", 1);
-
                 }
                 $(".help-balloon").hide();
                 clearInterval(interval);
@@ -45,15 +43,14 @@
     });
 
     $(".info-box").click(function () {
-
         $.ajax({
             url: "GetInfoBox",
             data: { idQuestion: GetQuestionId() },
             success: function (data) {
-                if (data.success != "") {
-                    $(".hint-preview").hide();
+                $(".hint-preview").hide();
+                if (data.success != "" && !($(".info-box-preview-items").find(".infobox-success").length > 0)) {
                     $(".continent").css("z-index", -1);
-                    $(".info-box-preview-items").append("<p>" + data.success + "</p>");
+                    $(".info-box-preview-items").append("<p class='infobox-success'>" + data.success + "</p>");
                     $(".info-box-preview-items").css("z-index", 1);
                     $(".info-box-preview").show();
                     $(".info-box-preview").css("z-index", 1);
@@ -68,12 +65,12 @@
     });
     $(".master-badge-items").click(function () {
         $(".master-badge").remove();
-        
+
     });
     $(".new-badge-items").click(function () {
         $(".new-badge").remove();
     });
-     
+
     /*ball*/
     $(".ball").hover(function () {
         $(this).css("cursor", "pointer")
@@ -110,14 +107,14 @@
                 else if (data.badge == true) {
                     $(".new-badge").show().animate({ left: '500px' });
                     $(".new-badge-items").append("<img src='/Content/photos/category/masterOfContinent.png'/>")
-                    
+
                 }
 
                 $(".score").text(data.score);
             }
         });
     });
-   
+
     function GetQuestionId() {
         return $(".idQuestion").val();
     }

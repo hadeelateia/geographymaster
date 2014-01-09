@@ -1,0 +1,37 @@
+﻿@model geographymaster.Models.User
+
+@{
+    ViewBag.Title = "CreateUser";
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="question-rectangle">
+        <fieldset class="question">
+            <label class="question-label">Create user</label>
+
+            <div class="editor-label-question">
+                Username:
+            </div>
+            <div class="editor-field-question">
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username)
+            </div>
+
+            <div class="editor-label-question">
+                Password:
+            </div>
+            <div class="editor-field-question">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+            <p class="submit-padding">
+                <input type="submit" value="Create" class="question-submit" />
+            </p>
+        </fieldset>
+    </div>
+}
